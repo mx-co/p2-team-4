@@ -1,5 +1,5 @@
 function setup() {
-  var canvasSetting = createCanvas(1060, 700);
+  var canvasSetting = createCanvas(1200, 675);
   canvasSetting.parent("simulation");
 
   frameRate(30);
