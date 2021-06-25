@@ -1,5 +1,9 @@
 body {
-  background-color: brown;
+  background-color: rgb(243, 233, 214);
+  margin: 0;
+
+  /* disable scrollbar */
+  overflow: hidden;
 }
 
 canvas {
