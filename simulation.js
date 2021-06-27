@@ -1,3 +1,9 @@
+import Button from "./classes/button.js";
+
+window.preload = preload;
+window.draw = draw;
+window.mouseClicked = mouseClicked;
+
 angleMode(DEGREES);
 
 /*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
@@ -9,25 +15,30 @@ let newWidth = height * (16 / 9);
 let imgTestBild;
 let testSound;
 
-let soundIsActive = true;
+let testSoundIsActive = true;
 
 function preload() {
   imgTestBild = loadImage("./assets/img/testBild.png");
   testSound = loadSound("./Playground.mp3");
 }
-window.preload = preload;
 
 function mouseClicked() {
-  if (soundIsActive === true) {
+  if (testSoundIsActive === true) {
     testSound.play();
-    soundIsActive = false;
+    testSoundIsActive = false;
   }
 }
 
-window.mouseClicked = mouseClicked;
+function loadingScreen() {}
 
-function draw() {
+// let button = new Button(300, 300, 300, 80);
+
+function starScreen() {
   image(imgTestBild, 0, 0, newWidth, height);
+  // button.display();
+  // button.hitTestCustom();
 }
 
-window.draw = draw;
+function draw() {
+  starScreen();
+}
