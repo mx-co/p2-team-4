@@ -1,14 +1,25 @@
 import ButtonHitTest from "./buttonHitTest.js";
 
 export default class Button extends ButtonHitTest {
-  constructor(buttonX, buttonY, buttonWidth, buttonHeight) {
+  constructor(
+    buttonX,
+    buttonY,
+    buttonWidth,
+    buttonHeight,
+    buttonText,
+    hoverAnimationIsActive
+  ) {
     super(buttonX, buttonY, buttonWidth, buttonHeight);
+    this.buttonText = buttonText;
+    this.buttonScale = 1;
+    this.hoverAnimationIsActive = hoverAnimationIsActive;
   }
 
   //   CustomButton
-  display() {
+  display(fontStyle /*, fontSize*/) {
     push();
     translate(this.buttonX, this.buttonY);
+    scale(this.buttonScale);
     noStroke();
     fill(243, 233, 214),
       rect(
@@ -20,6 +31,25 @@ export default class Button extends ButtonHitTest {
 
     ellipse(-this.buttonWidth / 2, 0, this.buttonHeight);
     ellipse(this.buttonWidth / 2, 0, this.buttonHeight);
+
+    fill(0, 0, 0);
+    textAlign(CENTER, CENTER);
+    textFont(fontStyle);
+    textSize(height / 50); /*oder mit fontSize*/
+    text(this.buttonText, 0, 0);
+
+    if (this.hoverAnimationIsActive) {
+      this.hoverAnimation();
+    }
+
     pop();
+  }
+
+  hoverAnimation() {
+    if (this.hitTestCustom()) {
+      this.buttonScale = 1.02;
+    } else {
+      this.buttonScale = 1;
+    }
   }
 }
