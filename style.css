@@ -1,9 +1,9 @@
 body {
   background-color: rgb(243, 233, 214);
   margin: 0;
+
   /* disable scrollbar */
   overflow: hidden;
-  /* background-size: cover; */
 }
 
 canvas {
@@ -12,10 +12,6 @@ canvas {
   width: auto !important;
   height: 90% !important;
   /* !important überschreibt alle vorherigen Regeln */
-}
-
-#p5_loading {
-  background-color: darkcyan;
 }
 
 #simulation {
