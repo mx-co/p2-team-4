@@ -11,7 +11,7 @@ let imgTestBild;
 let testSound;
 let testSoundIsActive = true;
 
-let newWidth = height * (16 / 9);
+// let newWidth = height * (16 / 9);
 /*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
 Vorteil: Sowohl im Normalmodus, als auch im Vollbildmodus einsehbar. 
 Im Normalmodus musste man auf die Tabs aufpassen..
@@ -49,7 +49,7 @@ function preload() {
   loadAveriaFonts();
 
   imgTestBild = loadImage("./assets/img/testBild.png");
-  testSound = loadSound("./Playground.mp3");
+  // testSound = loadSound("./G&EMIX.mp3");
 }
 
 function mouseClicked() {
@@ -59,45 +59,37 @@ function mouseClicked() {
   }
 }
 let button = new Button(
-  width / 2,
-  height / 1.3,
-  width / 2.5,
-  height / 8,
+  600,
+  550,
+  600,
+  100,
   "Du und dein Lieblings-Tüdelü streitet euch. \nEs entscheidet sich daraufhin, weil es unzufrieden mit der Beziehung ist, \nmit dir schluss zu machen. \nWie reagiesrt du?",
   false
 );
 let button2 = new Button(
-  width / 2.9,
-  height / 1.1,
-  width / 5,
-  height / 8,
+  400,
+  620,
+  300,
+  50,
   "Ich möchte über den Trennungsgrund reden.",
   true
 );
 let button3 = new Button(
-  width / 1.6,
-  height / 1.1,
-  width / 5,
-  height / 8,
+  800,
+  620,
+  300,
+  50,
   "Ich ergreife so schnell wie möglich die Flucht.",
   true
 );
 
-// // setzt die Textgröße jenachdem wie groß der Bildschirm ist
-// let setScale = map(height, 0, hypotenuse(), 0, hypotenuse() / 35);
-
-// // Berechnet diagonalenbreite des Bildschirms
-// function hypotenuse() {
-//   return sqrt(pow(width, 2) + pow(height, 2));
-// }
-
 function starScreen() {
   push();
-  image(imgTestBild, 0, 0, newWidth, height);
+  image(imgTestBild, 0, 0, 1200, 675);
   button.display(averiaSansLibreBold);
   // button.hitTestCustom();
 
-  button2.display(averiaSansLibreLight);
+  button2.display(averiaSansLibreRegular);
   button3.display(averiaSansLibreRegular);
 
   pop();

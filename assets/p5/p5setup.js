@@ -1,11 +1,6 @@
 function setup() {
-  /*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
-Vorteil: Sowohl im Normalmodus, als auch im Vollbildmodus einsehbar. 
-Im Normalmodus musste man auf die Tabs aufpassen*/
-
-  var canvasSetting = createCanvas(windowHeight * (16 / 9), windowHeight);
+  var canvasSetting = createCanvas(1200, 675);
   canvasSetting.parent("simulation");
-
   frameRate(30);
 }
 
@@ -19,3 +14,12 @@ window.addEventListener("resize", function () {
 new p5();
 var width = windowWidth;
 var height = windowHeight;
+
+/*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
+Vorteil: Sowohl im Normalmodus, als auch im Vollbildmodus einsehbar. 
+Im Normalmodus musste man auf die Tabs aufpassen
+
+Vorgänger:
+var canvasSetting = createCanvas(windowHeight * (16 / 9), windowHeight);
+Beißt sich mit Texten, höhen und breiten von Button
+*/

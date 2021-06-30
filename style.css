@@ -1,14 +1,28 @@
 body {
   background-color: rgb(243, 233, 214);
   margin: 0;
-
   /* disable scrollbar */
   overflow: hidden;
+  /* background-size: cover; */
 }
 
 canvas {
-  margin: 0 auto;
-  display: block;
+  /* margin: 0 auto; */
+  /* display: block;   */
+  width: auto !important;
+  height: 90% !important;
+  /* !important überschreibt alle vorherigen Regeln */
 }
 
+#p5_loading {
+  background-color: darkcyan;
+}
 
+#simulation {
+  /* erweitert oder verkleinert Element je nach Platz */
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}

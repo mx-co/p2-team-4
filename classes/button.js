@@ -16,7 +16,7 @@ export default class Button extends ButtonHitTest {
   }
 
   //   CustomButton
-  display(fontStyle /*, fontSize*/) {
+  display(fontStyle) {
     push();
     translate(this.buttonX, this.buttonY);
     scale(this.buttonScale);
@@ -35,7 +35,7 @@ export default class Button extends ButtonHitTest {
     fill(0, 0, 0);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
-    textSize(height / 50); /*oder mit fontSize*/
+    textSize(15);
     text(this.buttonText, 0, 0);
 
     if (this.hoverAnimationIsActive) {
