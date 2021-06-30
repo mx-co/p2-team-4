@@ -1,4 +1,5 @@
 import Button from "./classes/button.js";
+import Sign from "./classes/sign.js";
 
 window.preload = preload;
 window.draw = draw;
@@ -10,6 +11,7 @@ angleMode(DEGREES);
 let imgTestBild;
 let testSound;
 let testSoundIsActive = true;
+let testGif;
 
 // let newWidth = height * (16 / 9);
 /*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
@@ -49,7 +51,9 @@ function preload() {
   loadAveriaFonts();
 
   imgTestBild = loadImage("./assets/img/testBild.png");
-  // testSound = loadSound("./G&EMIX.mp3");
+  testSound = loadSound("./Playground.mp3");
+
+  testGif = loadImage("./myGif.gif");
 }
 
 function mouseClicked() {
@@ -58,14 +62,15 @@ function mouseClicked() {
     testSoundIsActive = false;
   }
 }
-let button = new Button(
+
+let mySign = new Sign(
   600,
   550,
   600,
   100,
-  "Du und dein Lieblings-Tüdelü streitet euch. \nEs entscheidet sich daraufhin, weil es unzufrieden mit der Beziehung ist, \nmit dir schluss zu machen. \nWie reagiesrt du?",
-  false
+  "Du und dein Lieblings-Tüdelü streitet euch. \nEs entscheidet sich daraufhin, weil es unzufrieden mit der Beziehung ist, \nmit dir schluss zu machen. \nWie reagiesrt du?"
 );
+
 let button2 = new Button(
   400,
   620,
@@ -86,9 +91,10 @@ let button3 = new Button(
 function starScreen() {
   push();
   image(imgTestBild, 0, 0, 1200, 675);
-  button.display(averiaSansLibreBold);
-  // button.hitTestCustom();
 
+  image(testGif, 100, 100);
+
+  mySign.display(averiaSansLibreBold);
   button2.display(averiaSansLibreRegular);
   button3.display(averiaSansLibreRegular);
 
