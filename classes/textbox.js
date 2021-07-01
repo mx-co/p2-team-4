@@ -1,4 +1,4 @@
-export default class Sign {
+export default class Textbox {
   constructor(signX, signY, signWidth, signHeight, signText) {
     this.signX = signX;
     this.signY = signY;

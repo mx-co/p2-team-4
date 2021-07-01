@@ -1,5 +1,5 @@
 import Button from "./classes/button.js";
-import Sign from "./classes/sign.js";
+import Textbox from "./classes/textbox.js";
 
 window.preload = preload;
 window.draw = draw;
@@ -12,12 +12,6 @@ let imgTestBild;
 let testSound;
 let testSoundIsActive = true;
 let testGif;
-
-// let newWidth = height * (16 / 9);
-/*Seitenverhätnis 16:9 => Berechnung width=height * (16 / 9); height=height; 
-Vorteil: Sowohl im Normalmodus, als auch im Vollbildmodus einsehbar. 
-Im Normalmodus musste man auf die Tabs aufpassen..
-Sollte es nicht funktioneren, dann Format: 1200, 675 oder 1080. 608 (Seitenverhältnise =16:9)*/
 
 let averiaSansLibreBold;
 let averiaSansLibreBoldItalic;
@@ -48,10 +42,10 @@ function loadAveriaFonts() {
 }
 
 function preload() {
+  testSound = loadSound("./G&EMIX.mp3");
   loadAveriaFonts();
 
   imgTestBild = loadImage("./assets/img/testBild.png");
-  testSound = loadSound("./Playground.mp3");
 
   testGif = loadImage("./myGif.gif");
 }
@@ -63,7 +57,7 @@ function mouseClicked() {
   }
 }
 
-let mySign = new Sign(
+let mySign = new Textbox(
   600,
   550,
   600,

@@ -3,7 +3,7 @@ body {
   margin: 0;
 
   /* disable scrollbar */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 canvas {
@@ -21,4 +21,12 @@ canvas {
   width: 100vw;
   height: 100vh;
   align-items: center;
+}
+
+#p5_loading {
+  background-color: brown;
+  /* background: url("./assets/img/testBild.png"); */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }

@@ -6,10 +6,12 @@ function setup() {
 
 window.setup = setup;
 
-window.addEventListener("resize", function () {
-  resizeCanvas(windowWidth, windowHeight);
-  clear();
-});
+// Weg damit Browserfenster und Canvas sich immer ständig resizen können
+
+// window.addEventListener("resize", function () {
+//   resizeCanvas(windowWidth, windowHeight);
+//   clear();
+// });
 
 new p5();
 var width = windowWidth;
