@@ -44,19 +44,29 @@ export default class Button extends ButtonHitTest {
     pop();
   }
 
-  gsapAnimationToRight() {
+  gsapAnimationToRight(buttonXstart) {
     gsap.to(this, {
       duration: 1,
       buttonX: 1200 + this.buttonWidth,
       ease: "back.in(0.8)",
+      onComplete: () => {
+        gsap.to(this, {
+          buttonX: buttonXstart,
+        });
+      },
     });
   }
 
-  gsapAnimationToLeft() {
+  gsapAnimationToLeft(buttonXstart) {
     gsap.to(this, {
       duration: 1,
       buttonX: 0 - this.buttonWidth,
       ease: "back.in(0.8)",
+      onComplete: () => {
+        gsap.to(this, {
+          buttonX: buttonXstart,
+        });
+      },
     });
   }
 }

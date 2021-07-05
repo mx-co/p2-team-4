@@ -1,7 +1,6 @@
 // test Variable
 export let imgTestBild;
 export let testSound;
-export let testSoundIsActive = true;
 export let testGif;
 
 // Font Variable

@@ -46,26 +46,4 @@ export default class AnswerButton extends ButtonHitTest {
 
     pop();
   }
-
-  displayCirlce(fontStyle) {
-    push();
-    translate(this.buttonX, this.buttonY);
-    scale(this.buttonScale);
-    noStroke();
-    fill(243, 233, 214), ellipse(0, 0, this.buttonHeight);
-
-    fill(0, 0, 0);
-    textAlign(CENTER, CENTER);
-    textFont(fontStyle);
-    textSize(15);
-    text(this.buttonText, 0, 0);
-
-    if (this.hoverAnimationIsActive && this.hitTestCircle()) {
-      this.buttonScale = 1.02;
-    } else {
-      this.buttonScale = 1;
-    }
-
-    pop();
-  }
 }
