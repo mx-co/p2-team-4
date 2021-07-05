@@ -8,7 +8,7 @@ window.mouseClicked = mouseClicked;
 
 angleMode(DEGREES);
 
-let screenState = "start";
+let screenState = "test";
 
 // Test Variable
 let imgTestBild;
@@ -46,7 +46,7 @@ function loadAveriaFonts() {
 }
 
 function preloadForTestScreen() {
-  testSound = loadSound("./Playground.mp3");
+  testSound = loadSound("./G&EMIX.mp3");
   imgTestBild = loadImage("./assets/img/testBild.png");
 
   testGif = loadImage("./myGif.gif");
@@ -69,7 +69,13 @@ function mouseClickedForTestScreen() {
   }
 }
 
-function mouseClickedForStartScreen() {}
+function mouseClickedForStartScreen() {
+  if (startButton.hitTestCircle()) {
+    startButton.gsapAnimationToRight();
+    titleButton.gsapAnimationToLeft();
+  }
+  // in resesFunction noch eintragen
+}
 function mouseClickedForGuideScreen() {}
 function mouseClickedForGameScreen() {}
 function mouseClickedForEndScreen() {}
@@ -77,13 +83,18 @@ function mouseClickedForEndScreen() {}
 function mouseClicked() {
   if (screenState === "start") {
     mouseClickedForStartScreen();
+  } else if (screenState === "guide") {
+    mouseClickedForGuideScreen();
   } else if (screenState === "game") {
     mouseClickedForGameScreen();
+  } else if (screenState === "end") {
+    mouseClickedForEndScreen();
   } else if (screenState === "test") {
     mouseClickedForTestScreen();
   }
 }
 
+// TestScreen
 let mySign = new Textbox(
   600,
   550,
@@ -122,6 +133,7 @@ function testScreen() {
   pop();
 }
 
+// StartScreen
 let startButton = new Button(
   1200,
   675 / 2,
@@ -133,16 +145,30 @@ let startButton = new Button(
   0,
   20
 );
+let titleButton = new Button(200, 675 / 2, 500, 500, "hallo", false, 0, 0, 20);
 
 function startScreen() {
   background(0, 100, 100);
+
+  titleButton.display(averiaSansLibreBold);
+
   startButton.display(averiaSansLibreBold);
+  if (startButton.buttonX >= 1200 + startButton.buttonHeight) {
+    screenState = "guide";
+  }
+}
+
+function guideScreen() {
+  background(100, 100, 200);
 }
 
 function draw() {
   if (screenState === "start") {
     startScreen();
+  } else if (screenState === "guide") {
+    guideScreen();
   } else if (screenState === "game") {
+  } else if (screenState === "end") {
   } else if (screenState === "test") {
     testScreen();
   }

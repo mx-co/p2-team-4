@@ -26,7 +26,8 @@ export default class Button extends ButtonHitTest {
     translate(this.buttonX, this.buttonY);
     scale(this.buttonScale);
     noStroke();
-    fill(243, 233, 214), ellipse(0, 0, this.buttonHeight);
+    fill(243, 233, 214);
+    ellipse(0, 0, this.buttonHeight);
 
     fill(0, 0, 0);
     textAlign(CENTER, CENTER);
@@ -41,5 +42,21 @@ export default class Button extends ButtonHitTest {
     }
 
     pop();
+  }
+
+  gsapAnimationToRight() {
+    gsap.to(this, {
+      duration: 1,
+      buttonX: 1200 + this.buttonWidth,
+      ease: "back.in(0.8)",
+    });
+  }
+
+  gsapAnimationToLeft() {
+    gsap.to(this, {
+      duration: 1,
+      buttonX: 0 - this.buttonWidth,
+      ease: "back.in(0.8)",
+    });
   }
 }
