@@ -1,6 +1,20 @@
 import AnswerButton from "./classes/answerButton.js";
 import Button from "./classes/button.js";
 import Textbox from "./classes/textbox.js";
+import {
+  imgTestBild,
+  testSound,
+  testSoundIsActive,
+  testGif,
+  // fonts
+  averiaSansLibreBold,
+  averiaSansLibreBoldItalic,
+  averiaSansLibreItalic,
+  averiaSansLibreLight,
+  averiaSansLibreLightItalic,
+  averiaSansLibreRegular,
+  preload,
+} from "./preload.js";
 
 window.preload = preload;
 window.draw = draw;
@@ -9,58 +23,6 @@ window.mouseClicked = mouseClicked;
 angleMode(DEGREES);
 
 let screenState = "test";
-
-// Test Variable
-let imgTestBild;
-let testSound;
-let testSoundIsActive = true;
-let testGif;
-
-// Font Variable
-let averiaSansLibreBold;
-let averiaSansLibreBoldItalic;
-let averiaSansLibreItalic;
-let averiaSansLibreLight;
-let averiaSansLibreLightItalic;
-let averiaSansLibreRegular;
-
-function loadAveriaFonts() {
-  averiaSansLibreBold = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Bold.ttf"
-  );
-  averiaSansLibreBoldItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-BoldItalic.ttf"
-  );
-  averiaSansLibreItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Italic.ttf"
-  );
-  averiaSansLibreLight = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Light.ttf"
-  );
-  averiaSansLibreLightItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-LightItalic.ttf"
-  );
-  averiaSansLibreRegular = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Regular.ttf"
-  );
-}
-
-function preloadForTestScreen() {
-  testSound = loadSound("./G&EMIX.mp3");
-  imgTestBild = loadImage("./assets/img/testBild.png");
-
-  testGif = loadImage("./myGif.gif");
-}
-
-function preloadForStartScreen() {}
-function preloadForGuideScreen() {}
-function preloadForGameScreen() {}
-function preloadForEndScreen() {}
-
-function preload() {
-  loadAveriaFonts();
-  preloadForTestScreen();
-}
 
 function mouseClickedForTestScreen() {
   if (testSoundIsActive === true) {
