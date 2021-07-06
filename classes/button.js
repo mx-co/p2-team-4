@@ -7,49 +7,66 @@ export default class Button extends ButtonHitTest {
     buttonWidth,
     buttonHeight,
     buttonText,
-    hoverAnimationIsActive
+    hoverAnimationIsActive,
+    textOffsetX,
+    textOffsetY,
+    textSize
   ) {
     super(buttonX, buttonY, buttonWidth, buttonHeight);
     this.buttonText = buttonText;
     this.buttonScale = 1;
     this.hoverAnimationIsActive = hoverAnimationIsActive;
+    this.textOffsetX = textOffsetX;
+    this.textOffsetY = textOffsetY;
+    this.textSize = textSize;
   }
 
-  //   CustomButton
   display(fontStyle) {
     push();
     translate(this.buttonX, this.buttonY);
     scale(this.buttonScale);
     noStroke();
-    fill(243, 233, 214),
-      rect(
-        -this.buttonWidth / 2,
-        -this.buttonHeight / 2,
-        this.buttonWidth,
-        this.buttonHeight
-      );
-
-    ellipse(-this.buttonWidth / 2, 0, this.buttonHeight);
-    ellipse(this.buttonWidth / 2, 0, this.buttonHeight);
+    fill(243, 233, 214);
+    ellipse(0, 0, this.buttonHeight);
 
     fill(0, 0, 0);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
-    textSize(15);
-    text(this.buttonText, 0, 0);
+    textSize(this.textSize);
+    text(this.buttonText, this.textOffsetX, this.textOffsetY);
 
-    if (this.hoverAnimationIsActive) {
-      this.hoverAnimation();
+    if (this.hoverAnimationIsActive && this.hitTestCircle()) {
+      this.buttonScale = 1.02;
+    } else {
+      this.buttonScale = 1;
     }
 
     pop();
   }
 
-  hoverAnimation() {
-    if (this.hitTestCustom()) {
-      this.buttonScale = 1.02;
-    } else {
-      this.buttonScale = 1;
-    }
+  gsapAnimationToRight(buttonXstart) {
+    gsap.to(this, {
+      duration: 1,
+      buttonX: 1200 + this.buttonWidth,
+      ease: "back.in(0.8)",
+      onComplete: () => {
+        gsap.to(this, {
+          buttonX: buttonXstart,
+        });
+      },
+    });
+  }
+
+  gsapAnimationToLeft(buttonXstart) {
+    gsap.to(this, {
+      duration: 1,
+      buttonX: 0 - this.buttonWidth,
+      ease: "back.in(0.8)",
+      onComplete: () => {
+        gsap.to(this, {
+          buttonX: buttonXstart,
+        });
+      },
+    });
   }
 }
