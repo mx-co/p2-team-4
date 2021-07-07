@@ -1,3 +1,5 @@
+// Max
+
 import { averiaSansLibreBold, greenCircle } from "./preload.js";
 import Button from "./classes/button.js";
 
