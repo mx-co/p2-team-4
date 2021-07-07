@@ -21,13 +21,19 @@ export default class Button extends ButtonHitTest {
     this.textSize = textSize;
   }
 
-  display(fontStyle) {
+  display(fontStyle, myImg, imgSize) {
     push();
     translate(this.buttonX, this.buttonY);
     scale(this.buttonScale);
     noStroke();
-    fill(243, 233, 214);
+    fill(42, 87, 66);
     ellipse(0, 0, this.buttonHeight);
+
+    push();
+    imageMode(CENTER);
+    scale(imgSize);
+    image(myImg, 0, 0);
+    pop();
 
     fill(0, 0, 0);
     textAlign(CENTER, CENTER);
@@ -47,7 +53,7 @@ export default class Button extends ButtonHitTest {
   gsapAnimationToRight(buttonXstart) {
     gsap.to(this, {
       duration: 1,
-      buttonX: 1220 + this.buttonWidth,
+      buttonX: 1220 + this.buttonHeight,
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {
@@ -60,7 +66,7 @@ export default class Button extends ButtonHitTest {
   gsapAnimationToLeft(buttonXstart) {
     gsap.to(this, {
       duration: 1,
-      buttonX: -20 - this.buttonWidth,
+      buttonX: -20 - this.buttonHeight,
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {

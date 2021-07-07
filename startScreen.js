@@ -1,4 +1,4 @@
-import { averiaSansLibreBold, greenCircle } from "./preload.js";
+import { averiaSansLibreBold, startBGImg, greenCircle } from "./preload.js";
 import Button from "./classes/button.js";
 
 let startButton = new Button(
@@ -6,24 +6,23 @@ let startButton = new Button(
   675 / 2,
   700,
   700,
-  "hallo",
+  "Weiter",
   true,
   -200,
   0,
   20
 );
-let titleButton = new Button(200, 675 / 2, 500, 500, "hallo", false, 0, 0, 20);
+let titleButton = new Button(200, 200, 800, 800, "Metanoia", false, 0, 0, 20);
 
 export function startScreen() {
   pop();
-  background(0, 100, 100);
+  background(42, 87, 66);
 
-  titleButton.display(averiaSansLibreBold);
+  image(startBGImg, 0, 0, 1200, 675);
 
-  startButton.display(averiaSansLibreBold);
+  titleButton.display(averiaSansLibreBold, greenCircle, 1.1);
 
-  // imageMode(CENTER);
-  // image(greenCircle, 200, 675 / 2);
+  startButton.display(averiaSansLibreBold, greenCircle, 1.1);
 
   if (startButton.buttonX >= 1200 + startButton.buttonHeight) {
     return true;

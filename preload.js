@@ -12,6 +12,7 @@ export let averiaSansLibreRegular;
 
 // startScreen
 export let greenCircle;
+export let startBGImg;
 
 // gameScreen
 export let aloneInBoatVideo;
@@ -47,6 +48,9 @@ function preloadForTestScreen() {
 }
 function preloadForStartScreen() {
   greenCircle = loadImage("./assets/img/greenCircle.png");
+  startBGImg = loadImage(
+    "./assets/img/backgroundScreens/startScreenHintergrund.png"
+  );
 }
 
 function preloadForGuideScreen() {}
