@@ -17,6 +17,8 @@ export let greenCircle;
 export let aloneInBoatVideo;
 export let argumentVideo;
 export let sunriseVideo;
+export let aloneInBedVideo;
+export let handyImg;
 
 function loadAveriaFonts() {
   averiaSansLibreBold = loadFont(
@@ -56,6 +58,10 @@ function preloadForGameScreen() {
   aloneInBoatVideo.hide();
   sunriseVideo = createVideo("./assets/img/video/sonnenaufgang.mp4");
   sunriseVideo.hide();
+  aloneInBedVideo = createVideo("./assets/img/video/sunlightAnimation.mp4");
+  aloneInBedVideo.hide();
+
+  handyImg = loadImage("./assets/img/backgroundScreens/handy.png");
 }
 
 function preloadForEndScreen() {}

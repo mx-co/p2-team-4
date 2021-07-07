@@ -6,6 +6,8 @@ import {
   aloneInBoatVideo,
   argumentVideo,
   sunriseVideo,
+  aloneInBedVideo,
+  handyImg,
 } from "./preload.js";
 
 let gameScreenState = "argument";
@@ -121,9 +123,38 @@ function sunriseScreen() {
   pop();
 }
 
-// function aloneInBedScreen(){
+function kitchenScreen() {}
 
-// }
+function aloneInBedScreen() {
+  push();
+  image(aloneInBedVideo, 0, 0, 1200, 675);
+
+  pop();
+}
+
+let fairygram = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygramm."
+  ),
+
+  LeftButton: new AnswerButton(420, 620, 300, 50, "Entfolgen.", true),
+  RightButton: new AnswerButton(780, 620, 300, 50, "Nicht entfolgen.", true),
+};
+
+function fairygramScreen() {
+  push();
+
+  image(handyImg, 0, 0, 1200, 675);
+  fairygram.textbox.display(averiaSansLibreBold);
+  fairygram.LeftButton.display(averiaSansLibreRegular);
+  fairygram.RightButton.display(averiaSansLibreRegular);
+
+  pop();
+}
 
 export function gameScreen() {
   push();
@@ -137,6 +168,12 @@ export function gameScreen() {
   }
   if (gameScreenState === "sunrise") {
     sunriseScreen();
+  }
+  if (gameScreenState === "aloneInBed") {
+    aloneInBedScreen();
+  }
+  if (gameScreenState === "fairygram") {
+    fairygramScreen();
   }
 
   pop();
@@ -156,12 +193,12 @@ export function mouseClickedForGameScreen() {
     }
   }
   if (gameScreenState === "sunrise") {
-    sunriseScreen();
+    if (sunrise.LeftButton.hitTestCustom()) {
+      gameScreenState = "aloneInBed";
+      aloneInBedVideo.loop();
+    }
   }
 
-  //   if (sunrise.LeftButton.hitTestCustom()) {
-  //     gameScreenState = "aloneInBed";
-  //   }
   //   muss wo anderst gestartet werden (wenn screenState="game" wird)
   argumentVideo.loop();
 }
