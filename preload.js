@@ -11,6 +11,9 @@ export let averiaSansLibreLight;
 export let averiaSansLibreLightItalic;
 export let averiaSansLibreRegular;
 
+// startScreen
+export let greenCircle;
+
 function loadAveriaFonts() {
   averiaSansLibreBold = loadFont(
     "./assets/fonts/averia/AveriaSansLibre-Bold.ttf"
@@ -38,7 +41,9 @@ function preloadForTestScreen() {
   testGif = loadImage("./myGif.gif");
 }
 
-function preloadForStartScreen() {}
+function preloadForStartScreen() {
+  greenCircle = loadImage("./assets/img/greenCircle.png");
+}
 
 function preloadForGuideScreen() {}
 
