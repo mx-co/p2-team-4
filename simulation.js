@@ -1,5 +1,6 @@
 import { mouseClickedForStartScreen, startScreen } from "./startScreen.js";
 import { guideScreen, mouseClickedForGuideScreen } from "./guideScreen.js";
+import { gameScreen, mouseClickedForGameScreen } from "./gameScreen.js";
 
 import { mouseClickedForTestScreen, testScreen } from "./testScreen.js";
 import { preload } from "./preload.js";
@@ -10,16 +11,17 @@ window.mouseClicked = mouseClicked;
 
 angleMode(DEGREES);
 
-let screenState = "start";
+let screenState = "game";
 
-function mouseClickedForGameScreen() {}
 function mouseClickedForEndScreen() {}
 
 function mouseClicked() {
   if (screenState === "start") {
     mouseClickedForStartScreen();
   } else if (screenState === "guide") {
-    mouseClickedForGuideScreen();
+    if (mouseClickedForGuideScreen()) {
+      screenState = "game";
+    }
   } else if (screenState === "game") {
     mouseClickedForGameScreen();
   } else if (screenState === "end") {
@@ -39,6 +41,7 @@ function draw() {
   } else if (screenState === "guide") {
     guideScreen();
   } else if (screenState === "game") {
+    gameScreen();
   } else if (screenState === "end") {
   } else if (screenState === "test") {
     testScreen();

@@ -5,7 +5,6 @@ import {
   averiaSansLibreBold,
   averiaSansLibreRegular,
   imgTestBild,
-  testGif,
   testSound,
 } from "./preload.js";
 
@@ -39,8 +38,6 @@ let testSoundIsActive = true;
 export function testScreen() {
   push();
   image(imgTestBild, 0, 0, 1200, 675);
-
-  image(testGif, 100, 100);
 
   mySign.display(averiaSansLibreBold);
   button2.display(averiaSansLibreRegular);

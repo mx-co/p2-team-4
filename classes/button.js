@@ -47,7 +47,7 @@ export default class Button extends ButtonHitTest {
   gsapAnimationToRight(buttonXstart) {
     gsap.to(this, {
       duration: 1,
-      buttonX: 1200 + this.buttonWidth,
+      buttonX: 1220 + this.buttonWidth,
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {
@@ -60,7 +60,7 @@ export default class Button extends ButtonHitTest {
   gsapAnimationToLeft(buttonXstart) {
     gsap.to(this, {
       duration: 1,
-      buttonX: 0 - this.buttonWidth,
+      buttonX: -20 - this.buttonWidth,
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {
