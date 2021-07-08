@@ -1,11 +1,16 @@
-import { averiaSansLibreBold, imgTestBild } from "./preload.js";
+import {
+  averiaSansLibreBold,
+  averiaSansLibreRegular,
+  greenCircle,
+  imgTestBild,
+} from "./preload.js";
 import Button from "./classes/button.js";
 
 let startGuideButton = new Button(
-  200,
+  900,
   675 / 2,
-  500,
-  500,
+  400,
+  400,
   "hallo",
   true,
   0,
@@ -18,7 +23,7 @@ export function guideScreen() {
   // BG kommt noch
   image(imgTestBild, 0, 0, 1200, 675);
 
-  startGuideButton.display(averiaSansLibreBold);
+  startGuideButton.display(averiaSansLibreBold, greenCircle, 0.6);
 }
 
 export function mouseClickedForGuideScreen() {

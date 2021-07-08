@@ -35,7 +35,7 @@ export default class Button extends ButtonHitTest {
     image(myImg, 0, 0);
     pop();
 
-    fill(0, 0, 0);
+    fill(243, 233, 214);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
     textSize(this.textSize);
@@ -46,6 +46,18 @@ export default class Button extends ButtonHitTest {
     } else {
       this.buttonScale = 1;
     }
+    pop();
+  }
+
+  subTitle(fontStyle, subText, subSize, subOffsetX, subOffsetY) {
+    push();
+    translate(this.buttonX, this.buttonY);
+    scale(this.buttonScale);
+    fill(243, 233, 214);
+    textAlign(CENTER, CENTER);
+    textFont(fontStyle);
+    textSize(subSize);
+    text(subText, subOffsetX, subOffsetY);
 
     pop();
   }
@@ -57,7 +69,13 @@ export default class Button extends ButtonHitTest {
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {
-          buttonX: buttonXstart,
+          duration: 1,
+          buttonX: 1300 + this.buttonHeight,
+          onComplete: () => {
+            gsap.to(this, {
+              buttonX: buttonXstart,
+            });
+          },
         });
       },
     });
@@ -70,7 +88,13 @@ export default class Button extends ButtonHitTest {
       ease: "back.in(0.8)",
       onComplete: () => {
         gsap.to(this, {
-          buttonX: buttonXstart,
+          duration: 1,
+          buttonX: -100 - this.buttonHeight,
+          onComplete: () => {
+            gsap.to(this, {
+              buttonX: buttonXstart,
+            });
+          },
         });
       },
     });

@@ -8,9 +8,11 @@ import {
   sunriseVideo,
   aloneInBedVideo,
   handyImg,
+  aloneAtFavouritePlaceVideo,
+  togetherAtFavouritePlaceVideo,
 } from "./preload.js";
 
-let gameScreenState = "argument";
+let gameScreenState = "aloneInBoat";
 
 let argument = {
   textbox: new Textbox(
@@ -73,7 +75,7 @@ let aloneInBoat = {
     620,
     300,
     50,
-    "Ich möchte mich nur noch zu Hause verkriechen.",
+    "Alleine zum Lieblingsort fahren.",
     true
   ),
 };
@@ -85,6 +87,75 @@ function aloneInBoatScreen() {
   aloneInBoat.LeftButton.display(averiaSansLibreRegular);
   aloneInBoat.RightButton.display(averiaSansLibreRegular);
   pop();
+}
+
+let aloneAtFavouritePlace = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "An deinem Lieblingsort angekommen, \nwirst du dir deiner Einsamkeit bewusst. Wie reagierst du darauf?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich lasse meine Gefühlen freien Lauf, \nweine und schreie sie heraus.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich sage mir, dass es nur ein kleiner Streit war \nund das wir uns wieder vertragen können.",
+    true
+  ),
+};
+function aloneAtFavouritePlaceScreen() {
+  push();
+  image(aloneAtFavouritePlaceVideo, 0, 0, 1200, 675);
+  aloneAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  aloneAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
+  aloneAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
+
+  pop();
+}
+
+let togetherAtFavouritePlace = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Du triffst dich mit deinem besten Freund an deinem Lieblingsort. \nWorüber möchtest du reden?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich rede über die Trennung und meine Gefühle.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich rede über etwas anderes.",
+    true
+  ),
+};
+function togetherAtFavouritePlaceScreen() {
+  image(togetherAtFavouritePlaceVideo, 0, 0, 1200, 675);
+  togetherAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  togetherAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
+  togetherAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
 }
 
 let sunrise = {
@@ -158,21 +229,21 @@ function fairygramScreen() {
 
 export function gameScreen() {
   push();
-  background(100, 130, 230);
+  // background(100, 130, 230);
 
   if (gameScreenState === "argument") {
     argumentScreen();
-  }
-  if (gameScreenState === "aloneInBoat") {
+  } else if (gameScreenState === "aloneInBoat") {
     aloneInBoatScreen();
-  }
-  if (gameScreenState === "sunrise") {
+  } else if (gameScreenState === "aloneAtFavouritePlace") {
+    aloneAtFavouritePlaceScreen();
+  } else if (gameScreenState === "togetherAtFavouritePlace") {
+    togetherAtFavouritePlaceScreen();
+  } else if (gameScreenState === "sunrise") {
     sunriseScreen();
-  }
-  if (gameScreenState === "aloneInBed") {
+  } else if (gameScreenState === "aloneInBed") {
     aloneInBedScreen();
-  }
-  if (gameScreenState === "fairygram") {
+  } else if (gameScreenState === "fairygram") {
     fairygramScreen();
   }
 
@@ -181,18 +252,38 @@ export function gameScreen() {
 
 export function mouseClickedForGameScreen() {
   if (gameScreenState === "argument") {
-    if (argument.LeftButton.hitTestCustom()) {
+    if (
+      argument.LeftButton.hitTestCustom() ||
+      argument.RightButton.hitTestCustom()
+    ) {
       gameScreenState = "aloneInBoat";
       aloneInBoatVideo.loop();
     }
-  }
-  if (gameScreenState === "aloneInBoat") {
+  } else if (gameScreenState === "aloneInBoat") {
     if (aloneInBoat.LeftButton.hitTestCustom()) {
+      gameScreenState = "togetherAtFavouritePlace";
+      togetherAtFavouritePlaceVideo.loop();
+    } else if (aloneInBoat.RightButton.hitTestCustom()) {
+      gameScreenState = "aloneAtFavouritePlace";
+      aloneAtFavouritePlaceVideo.loop();
+    }
+  } else if (gameScreenState === "aloneAtFavouritePlace") {
+    if (
+      aloneAtFavouritePlace.LeftButton.hitTestCustom() ||
+      aloneAtFavouritePlace.RightButton.hitTestCustom()
+    ) {
       gameScreenState = "sunrise";
       sunriseVideo.play();
     }
-  }
-  if (gameScreenState === "sunrise") {
+  } else if (gameScreenState === "togetherAtFavouritePlace") {
+    if (
+      togetherAtFavouritePlace.LeftButton.hitTestCustom() ||
+      togetherAtFavouritePlace.RightButton.hitTestCustom()
+    ) {
+      gameScreenState = "sunrise";
+      sunriseVideo.play();
+    }
+  } else if (gameScreenState === "sunrise") {
     if (sunrise.LeftButton.hitTestCustom()) {
       gameScreenState = "aloneInBed";
       aloneInBedVideo.loop();
