@@ -31,7 +31,7 @@ function mouseClicked() {
 }
 
 function draw() {
-  if (screenState === "start") {
+  if (screenState === "start") { 
     startScreen();
     if (startScreen()) {
       // wenn button auf bestimmte position ist, dann return true

@@ -13,7 +13,7 @@ export default class ButtonHitTest {
       mouseY >= this.buttonY - this.buttonHeight / 2 &&
       mouseY <= this.buttonY + this.buttonHeight / 2
     ) {
-      console.log("hitRectangle");
+      // console.log("hitRectangle");
       return true;
     }
   }
@@ -22,7 +22,7 @@ export default class ButtonHitTest {
     let d = dist(mouseX, mouseY, this.buttonX, this.buttonY);
 
     if (d <= this.buttonWidth / 2) {
-      console.log("hitCircle");
+      // console.log("hitCircle");
       return true;
     }
   }
@@ -49,7 +49,7 @@ export default class ButtonHitTest {
       dLeft <= this.buttonHeight / 2 ||
       dRight <= this.buttonHeight / 2
     ) {
-      console.log("hitCostum");
+      // console.log("hitCostum");
       return true;
     }
   }

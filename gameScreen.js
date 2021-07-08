@@ -10,9 +10,10 @@ import {
   handyImg,
   aloneAtFavouritePlaceVideo,
   togetherAtFavouritePlaceVideo,
+  kitchenImg,
 } from "./preload.js";
 
-let gameScreenState = "aloneInBoat";
+let gameScreenState = "sunrise";
 
 let argument = {
   textbox: new Textbox(
@@ -121,7 +122,6 @@ function aloneAtFavouritePlaceScreen() {
   aloneAtFavouritePlace.textbox.display(averiaSansLibreBold);
   aloneAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   aloneAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
-
   pop();
 }
 
@@ -152,10 +152,12 @@ let togetherAtFavouritePlace = {
   ),
 };
 function togetherAtFavouritePlaceScreen() {
+  push();
   image(togetherAtFavouritePlaceVideo, 0, 0, 1200, 675);
   togetherAtFavouritePlace.textbox.display(averiaSansLibreBold);
   togetherAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   togetherAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
+  pop();
 }
 
 let sunrise = {
@@ -194,11 +196,61 @@ function sunriseScreen() {
   pop();
 }
 
-function kitchenScreen() {}
+// text fehlt
+let kitchen = {
+  textbox: new Textbox(600, 530, 600, 100, ""),
 
+  LeftButton: new AnswerButton(420, 620, 300, 50, "Zurück ins Bett.", true),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Eine Beschäftigung finden.",
+    true
+  ),
+};
+function kitchenScreen() {
+  push();
+  image(kitchenImg, 0, 0, 1200, 675);
+  kitchen.textbox.display(averiaSansLibreBold);
+  kitchen.LeftButton.display(averiaSansLibreRegular);
+  kitchen.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let aloneInBed = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Du rollst alleine im Bett herum und \nnimmst deinen Läutiling zur Hand. Wie entscheidest du dich?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich schaue mir alte Bilder an und \nvermisse die alten Zeiten.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich lösche alte Bilder \nvon meinem Ex-Lieblingstüdeldu.",
+    true
+  ),
+};
 function aloneInBedScreen() {
   push();
   image(aloneInBedVideo, 0, 0, 1200, 675);
+  aloneInBed.textbox.display(averiaSansLibreBold);
+  aloneInBed.LeftButton.display(averiaSansLibreRegular);
+  aloneInBed.RightButton.display(averiaSansLibreRegular);
 
   pop();
 }
@@ -215,7 +267,6 @@ let fairygram = {
   LeftButton: new AnswerButton(420, 620, 300, 50, "Entfolgen.", true),
   RightButton: new AnswerButton(780, 620, 300, 50, "Nicht entfolgen.", true),
 };
-
 function fairygramScreen() {
   push();
 
@@ -227,9 +278,282 @@ function fairygramScreen() {
   pop();
 }
 
+let sad = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Du fühlst dich traurig und einsam. Was möchtest du jetzt tun?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Im Bett liegen bleiben und weiterhin mit Social Media ablenken.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Aufstehen und Zimmer aufräumen.",
+    true
+  ),
+};
+// imgage fehlt
+function sadScreen() {
+  push();
+  sad.textbox.display(averiaSansLibreBold);
+  sad.LeftButton.display(averiaSansLibreRegular);
+  sad.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+// m w ?
+let friendIsCalling = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Dein Läutling klingelt und dein bester Freund schlägt vor etwas zu unternehmen, worauf du Lust hast."
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Einen entspannten Abend machen.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Auf eine Party gehen.",
+    true
+  ),
+};
+// image fehlt
+function friendIsCallingScreen() {
+  push();
+  background(0, 200, 100);
+
+  friendIsCalling.textbox.display(averiaSansLibreBold);
+  friendIsCalling.LeftButton.display(averiaSansLibreRegular);
+  friendIsCalling.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let aboutEx = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Du verbringst bisher einen entspannten Abend mit deinen engsten Freunden. \nEiner deiner Freunde spricht dich auf deinen Ex Partner an."
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich entscheide mich, meinen Freunden von der Trennung zu erzählen.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich gehe dem Gespräch aus dem Weg.",
+    true
+  ),
+};
+// image fehlt
+function aboutExScreen() {
+  push();
+
+  aboutEx.textbox.display(averiaSansLibreBold);
+  aboutEx.LeftButton.display(averiaSansLibreRegular);
+  aboutEx.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let talkAboutEx = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Was möchtest du deinen Freunden erzählen."
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü sehr vermisse und erzähle Geschichten aus der Vergangenheit.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich beschwere mich über mein Ex-Lieblings-Tüdeldü.",
+    true
+  ),
+};
+// imgage fehlt
+function talkAboutExScreen() {
+  push();
+
+  talkAboutEx.textbox.display(averiaSansLibreBold);
+  talkAboutEx.LeftButton.display(averiaSansLibreRegular);
+  talkAboutEx.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let selectMovie = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Deine Freunde überlassen dir die Filmauswahl. Worauf hast du Lust?"
+  ),
+
+  LeftButton: new AnswerButton(420, 620, 300, 50, "Liebesfilm.", true),
+  RightButton: new AnswerButton(780, 620, 300, 50, "Actionfilm.", true),
+};
+// image fehl
+function selectMovieScreen() {
+  push();
+
+  selectMovie.textbox.display(averiaSansLibreBold);
+  selectMovie.LeftButton.display(averiaSansLibreRegular);
+  selectMovie.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let lightParty = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Du gehst mit deinen Freunden zum Lichterball. Sie bieten dir an, etwas mit ihnen zu trinken."
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Der Alkohol wird mir helfen Spaß zu haben.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich hole mir lieber Blütensaft an der Theke.",
+    true
+  ),
+};
+// image fehglt
+function lightPartyScreen() {
+  push();
+
+  lightParty.textbox.display(averiaSansLibreBold);
+  lightParty.LeftButton.display(averiaSansLibreRegular);
+  lightParty.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let attractive = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Als du dir einen Blütensaft hollen willst, spricht dich ein attraktives Tüdeldü an. Wie verhälst du dich?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich sage, dass ich mich in einer Beziehung befinde.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich lass mich auf das Gespräch ein.",
+    true
+  ),
+};
+// image fehlt
+function attractiveScreen() {
+  push();
+
+  attractive.textbox.display(averiaSansLibreBold);
+  attractive.LeftButton.display(averiaSansLibreRegular);
+  attractive.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
+let danceAndNumber = {
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Ihr beiden versteht euch wirklich gut. Das Tüdeldü lädt dich zum Tanz ein und fragt anschließend nach deiner Nummer. Wie reagierst du?"
+  ),
+
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "Ich lehne ab, weil ich an mein Ex-Lieblings-Tüdeldü denken muss.",
+    true
+  ),
+  RightButton: new AnswerButton(
+    780,
+    620,
+    300,
+    50,
+    "Ich nehme an. Mal sehen, wohin es uns führt.",
+    true
+  ),
+};
+function danceAndNumberScreen() {
+  push();
+
+  danceAndNumber.textbox.display(averiaSansLibreBold);
+  danceAndNumber.LeftButton.display(averiaSansLibreRegular);
+  danceAndNumber.RightButton.display(averiaSansLibreRegular);
+  pop();
+}
+
 export function gameScreen() {
   push();
-  // background(100, 130, 230);
 
   if (gameScreenState === "argument") {
     argumentScreen();
@@ -243,10 +567,27 @@ export function gameScreen() {
     sunriseScreen();
   } else if (gameScreenState === "aloneInBed") {
     aloneInBedScreen();
+  } else if (gameScreenState === "kitchen") {
+    kitchenScreen();
   } else if (gameScreenState === "fairygram") {
     fairygramScreen();
+  } else if (gameScreenState === "sad") {
+    sadScreen();
+  } else if (gameScreenState === "friendIsCalling") {
+    friendIsCallingScreen();
+  } else if (gameScreenState === "aboutEx") {
+    aboutExScreen();
+  } else if (gameScreenState === "talbAboutEx") {
+    talkAboutExScreen();
+  } else if (gameScreenState === "selectMovie") {
+    selectMovieScreen();
+  } else if (gameScreenState === "lightParty") {
+    lightPartyScreen();
+  } else if (gameScreenState === "attractive") {
+    attractiveScreen();
+  } else if (gameScreenState === "danceAndNumber") {
+    danceAndNumberScreen();
   }
-
   pop();
 }
 
@@ -287,9 +628,79 @@ export function mouseClickedForGameScreen() {
     if (sunrise.LeftButton.hitTestCustom()) {
       gameScreenState = "aloneInBed";
       aloneInBedVideo.loop();
+    } else if (sunrise.RightButton.hitTestCustom()) {
+      gameScreenState = "kitchen";
+    }
+  } else if (gameScreenState === "kitchen") {
+    if (kitchen.LeftButton.hitTestCustom()) {
+      gameScreenState = "aloneInBed";
+      aloneInBedVideo.loop();
+    } else if (kitchen.RightButton.hitTestCustom()) {
+      gameScreenState = "friendIsCalling";
+    }
+  } else if (gameScreenState === "aloneInBed") {
+    if (aloneInBed.LeftButton.hitTestCustom()) {
+      gameScreenState = "fairygram";
+      // animationStart
+    } else if (aloneInBed.RightButton.hitTestCustom()) {
+      gameScreenState = "fairygram";
+    }
+  } else if (gameScreenState === "fairygram") {
+    if (fairygram.LeftButton.hitTestCustom()) {
+      gameScreenState = "sad";
+    } else if (fairygram.RightButton.hitTestCustom()) {
+      gameScreenState = "sad";
+    }
+  } else if (gameScreenState === "sad") {
+    if (sad.LeftButton.hitTestCustom()) {
+      // end aswertung
+    } else if (sad.RightButton.hitTestCustom()) {
+      // end Auswetung
+    }
+  } else if (gameScreenState === "friendIsCalling") {
+    if (friendIsCalling.LeftButton.hitTestCustom()) {
+      gameScreenState = "aboutEx";
+    } else if (friendIsCalling.RightButton.hitTestCustom()) {
+      gameScreenState = "lightParty";
+    }
+  } else if (gameScreenState === "aboutEx") {
+    if (aboutEx.LeftButton.hitTestCustom()) {
+      gameScreenState = "talkAboutEx";
+    } else if (aboutEx.RightButton.hitTestCustom()) {
+      gameScreenState = "selectMovie";
+    }
+  } else if (gameScreenState === "talkAboutEx") {
+    if (talkAboutEx.LeftButton.hitTestCustom()) {
+      // end
+    } else if (talkAboutEx.RightButton.hitTestCustom()) {
+      // end
+    }
+  } else if (gameScreenState === "selectMovie") {
+    if (selectMovie.LeftButton.hitTestCustom()) {
+      // auswertung
+    } else if (selectMovie.RightButton.hitTestCustom()) {
+      // auswertung
+    }
+  } else if (gameScreenState === "lightParty") {
+    if (lightParty.LeftButton.hitTestCustom()) {
+      // end Auswertung
+    } else if (lightParty.RightButton.hitTestCustom()) {
+      gameScreenState = "attractive";
+    }
+  } else if (gameScreenState === "attractive") {
+    if (attractive.LeftButton.hitTestCustom()) {
+      // Auswertung
+    } else if (attractive.RightButton.hitTestCustom()) {
+      gameScreenState = "danceAndNumber";
+    }
+  } else if (gameScreenState === "danceAndNumber") {
+    if (danceAndNumber.LeftButton.hitTestCustom()) {
+      gameScreenState = "aloneInBed";
+      // BG nicht richtig angezeigt
+    } else if (danceAndNumber.RightButton.hitTestCustom()) {
+      // Auswertung
     }
   }
-
   //   muss wo anderst gestartet werden (wenn screenState="game" wird)
   argumentVideo.loop();
 }

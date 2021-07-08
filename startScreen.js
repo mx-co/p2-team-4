@@ -20,7 +20,7 @@ let startButton = new Button(
 let titleButton = new Button(200, 200, 800, 800, "Metanoia", false, 90, 0, 100);
 
 export function startScreen() {
-  pop();
+  push();
   background(42, 87, 66);
 
   image(startBGImg, 0, 0, 1200, 675);
@@ -41,7 +41,7 @@ export function startScreen() {
     // screenState = "guide";
   }
 
-  push();
+  pop();
 }
 
 export function mouseClickedForStartScreen() {

@@ -21,6 +21,7 @@ export let aloneAtFavouritePlaceVideo;
 export let togetherAtFavouritePlaceVideo;
 export let sunriseVideo;
 export let aloneInBedVideo;
+export let kitchenImg;
 export let handyImg;
 
 function loadAveriaFonts() {
@@ -74,7 +75,7 @@ function preloadForGameScreen() {
   sunriseVideo.hide();
   aloneInBedVideo = createVideo("./assets/img/video/sunlightAnimation.mp4");
   aloneInBedVideo.hide();
-
+  kitchenImg = loadImage("./assets/img/backgroundScreens/kitchen.jpg");
   handyImg = loadImage("./assets/img/backgroundScreens/handy.png");
 }
 
