@@ -21,6 +21,7 @@ export let aloneAtFavouritePlaceVideo;
 export let togetherAtFavouritePlaceVideo;
 export let sunriseVideo;
 export let aloneInBedVideo;
+export let movieNightVideo;
 export let kitchenImg;
 export let handyImg;
 
@@ -75,7 +76,12 @@ function preloadForGameScreen() {
   sunriseVideo.hide();
   aloneInBedVideo = createVideo("./assets/img/video/sunlightAnimation.mp4");
   aloneInBedVideo.hide();
-  kitchenImg = loadImage("./assets/img/backgroundScreens/kitchen.jpg");
+
+  movieNightVideo = createVideo(
+    "./assets/img/video/chilligerAbendAnimation.mp4"
+  );
+  movieNightVideo.hide();
+  kitchenImg = loadImage("./assets/img/backgroundScreens/kitchen.PNG");
   handyImg = loadImage("./assets/img/backgroundScreens/handy.png");
 }
 

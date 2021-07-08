@@ -24,9 +24,9 @@ canvas {
 }
 
 #p5_loading {
-  background-color: brown;
-  /* background: url("./assets/img/testBild.png"); */
-  position: relative;
-  width: 80vw;
-  height: 80vh;
+  background: url("./assets/img/backgroundScreens/logoOhneText.PNG");
+  background-size: cover;
+  position: absolute;
+  width: 70%;
+  height: 80%;
 }

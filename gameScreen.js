@@ -11,9 +11,10 @@ import {
   aloneAtFavouritePlaceVideo,
   togetherAtFavouritePlaceVideo,
   kitchenImg,
+  movieNightVideo,
 } from "./preload.js";
 
-let gameScreenState = "sunrise";
+let gameScreenState = "argument";
 
 let argument = {
   textbox: new Textbox(
@@ -196,17 +197,29 @@ function sunriseScreen() {
   pop();
 }
 
-// text fehlt
 let kitchen = {
-  textbox: new Textbox(600, 530, 600, 100, ""),
+  textbox: new Textbox(
+    600,
+    530,
+    600,
+    100,
+    "Das Frühstück war sehr lecker. Als nächste..."
+  ),
 
-  LeftButton: new AnswerButton(420, 620, 300, 50, "Zurück ins Bett.", true),
+  LeftButton: new AnswerButton(
+    420,
+    620,
+    300,
+    50,
+    "... gehe ich zurück ins Bett.",
+    true
+  ),
   RightButton: new AnswerButton(
     780,
     620,
     300,
     50,
-    "Eine Beschäftigung finden.",
+    "... suche ich mir eine Beschäftigung.",
     true
   ),
 };
@@ -313,14 +326,13 @@ function sadScreen() {
   pop();
 }
 
-// m w ?
 let friendIsCalling = {
   textbox: new Textbox(
     600,
     530,
     600,
     100,
-    "Dein Läutling klingelt und dein bester Freund schlägt vor etwas zu unternehmen, worauf du Lust hast."
+    "Dein Läutling klingelt und dein/e beste/r Freund/in schlägt vor etwas zu unternehmen. Worauf du Lust hast?"
   ),
 
   LeftButton: new AnswerButton(
@@ -435,10 +447,9 @@ let selectMovie = {
   LeftButton: new AnswerButton(420, 620, 300, 50, "Liebesfilm.", true),
   RightButton: new AnswerButton(780, 620, 300, 50, "Actionfilm.", true),
 };
-// image fehl
 function selectMovieScreen() {
   push();
-
+  image(movieNightVideo, 0, 0, 1200, 675);
   selectMovie.textbox.display(averiaSansLibreBold);
   selectMovie.LeftButton.display(averiaSansLibreRegular);
   selectMovie.RightButton.display(averiaSansLibreRegular);
@@ -668,6 +679,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "talkAboutEx";
     } else if (aboutEx.RightButton.hitTestCustom()) {
       gameScreenState = "selectMovie";
+      movieNightVideo.loop();
     }
   } else if (gameScreenState === "talkAboutEx") {
     if (talkAboutEx.LeftButton.hitTestCustom()) {
