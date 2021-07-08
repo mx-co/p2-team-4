@@ -1,4 +1,9 @@
-import { averiaSansLibreBold, startBGImg, greenCircle } from "./preload.js";
+import {
+  averiaSansLibreBold,
+  startBGImg,
+  greenCircle,
+  averiaSansLibreRegular,
+} from "./preload.js";
 import Button from "./classes/button.js";
 
 let startButton = new Button(
@@ -8,11 +13,11 @@ let startButton = new Button(
   700,
   "Weiter",
   true,
-  -200,
+  -180,
   0,
-  20
+  50
 );
-let titleButton = new Button(200, 200, 800, 800, "Metanoia", false, 0, 0, 20);
+let titleButton = new Button(200, 200, 800, 800, "Metanoia", false, 90, 0, 100);
 
 export function startScreen() {
   pop();
@@ -21,10 +26,17 @@ export function startScreen() {
   image(startBGImg, 0, 0, 1200, 675);
 
   titleButton.display(averiaSansLibreBold, greenCircle, 1.1);
+  titleButton.subTitle(
+    averiaSansLibreRegular,
+    "eine Reise zur Veränderung \ndes Mindsets",
+    30,
+    90,
+    100
+  );
 
   startButton.display(averiaSansLibreBold, greenCircle, 1.1);
 
-  if (startButton.buttonX >= 1200 + startButton.buttonHeight) {
+  if (startButton.buttonX >= 1280 + startButton.buttonHeight) {
     return true;
     // screenState = "guide";
   }

@@ -4,6 +4,7 @@ import { gameScreen, mouseClickedForGameScreen } from "./gameScreen.js";
 
 import { mouseClickedForTestScreen, testScreen } from "./testScreen.js";
 import { preload } from "./preload.js";
+import { endScreen, mouseClickedForEndScreen } from "./endScreen.js";
 
 window.preload = preload;
 window.draw = draw;
@@ -11,9 +12,7 @@ window.mouseClicked = mouseClicked;
 
 angleMode(DEGREES);
 
-let screenState = "start";
-
-function mouseClickedForEndScreen() {}
+let screenState = "game";
 
 function mouseClicked() {
   if (screenState === "start") {
@@ -43,6 +42,7 @@ function draw() {
   } else if (screenState === "game") {
     gameScreen();
   } else if (screenState === "end") {
+    endScreen();
   } else if (screenState === "test") {
     testScreen();
   }

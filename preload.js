@@ -17,6 +17,8 @@ export let startBGImg;
 // gameScreen
 export let aloneInBoatVideo;
 export let argumentVideo;
+export let aloneAtFavouritePlaceVideo;
+export let togetherAtFavouritePlaceVideo;
 export let sunriseVideo;
 export let aloneInBedVideo;
 export let handyImg;
@@ -58,6 +60,14 @@ function preloadForGuideScreen() {}
 function preloadForGameScreen() {
   argumentVideo = createVideo("./assets/img/video/derStreit.mp4");
   argumentVideo.hide(); //.hide() verhindert die Zeichnung in neuer Dom, wird jetzt im Canvas gezeichent
+  aloneAtFavouritePlaceVideo = createVideo(
+    "./assets/img/video/aloneAtFavouritePlace.mp4"
+  );
+  aloneAtFavouritePlaceVideo.hide();
+  togetherAtFavouritePlaceVideo = createVideo(
+    "./assets/img/video/togetherAtFavouritePlace.mp4"
+  );
+  togetherAtFavouritePlaceVideo.hide();
   aloneInBoatVideo = createVideo("./assets/img/video/alleinImBoot.mp4");
   aloneInBoatVideo.hide();
   sunriseVideo = createVideo("./assets/img/video/sonnenaufgang.mp4");
