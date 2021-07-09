@@ -12,7 +12,7 @@ window.mouseClicked = mouseClicked;
 
 angleMode(DEGREES);
 
-let screenState = "start";
+let screenState = "end";
 
 function mouseClicked() {
   if (screenState === "start") {
@@ -29,6 +29,7 @@ function mouseClicked() {
     mouseClickedForTestScreen();
   }
 }
+
 
 function draw() {
   if (screenState === "start") {

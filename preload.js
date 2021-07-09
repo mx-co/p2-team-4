@@ -25,6 +25,10 @@ export let movieNightVideo;
 export let kitchenImg;
 export let handyImg;
 
+// endScreen
+export let positiveEndingVideo;
+export let negativeEndingVideo;
+
 function loadAveriaFonts() {
   averiaSansLibreBold = loadFont(
     "./assets/fonts/averia/AveriaSansLibre-Bold.ttf"
@@ -47,8 +51,8 @@ function loadAveriaFonts() {
 }
 
 function preloadForTestScreen() {
-  testSound = loadSound("./Playground.mp3");
-  imgTestBild = loadImage("./assets/img/testBild.png");
+  //testSound = loadSound("./Playground.mp3");
+  //imgTestBild = loadImage("./assets/img/testBild.png");
 }
 function preloadForStartScreen() {
   greenCircle = loadImage("./assets/img/greenCircle.png");
@@ -61,7 +65,7 @@ function preloadForGuideScreen() {}
 
 function preloadForGameScreen() {
   argumentVideo = createVideo("./assets/img/video/derStreit.mp4");
-  argumentVideo.hide(); //.hide() verhindert die Zeichnung in neuer Dom, wird jetzt im Canvas gezeichent
+  argumentVideo.hide(); //.hide() verhindert die Zeichnung in neuer Dom, wird jetzt im Canvas gezeichnet
   aloneAtFavouritePlaceVideo = createVideo(
     "./assets/img/video/aloneAtFavouritePlace.mp4"
   );
@@ -85,7 +89,12 @@ function preloadForGameScreen() {
   handyImg = loadImage("./assets/img/backgroundScreens/handy.png");
 }
 
-function preloadForEndScreen() {}
+function preloadForEndScreen() {
+  positiveEndingVideo = createVideo("./assets/img/video/positiveEnding.mp4");
+  positiveEndingVideo.hide();
+  negativeEndingVideo = createVideo("./assets/img/video/negativeEnding.mp4");
+  negativeEndingVideo.hide();
+}
 
 export function preload() {
   loadAveriaFonts();

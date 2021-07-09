@@ -21,7 +21,7 @@ let startGuideButton = new Button(
 export function guideScreen() {
   background(100, 100, 200);
   // BG kommt noch
-  image(imgTestBild, 0, 0, 1200, 675);
+  //image(imgTestBild, 0, 0, 1200, 675);
 
   startGuideButton.display(averiaSansLibreBold, greenCircle, 0.6);
 }
