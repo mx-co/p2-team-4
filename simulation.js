@@ -1,10 +1,10 @@
 import { mouseClickedForStartScreen, startScreen } from "./startScreen.js";
 import { guideScreen, mouseClickedForGuideScreen } from "./guideScreen.js";
 import { gameScreen, mouseClickedForGameScreen } from "./gameScreen.js";
-
-import { mouseClickedForTestScreen, testScreen } from "./testScreen.js";
-import { preload } from "./preload.js";
 import { endScreen, mouseClickedForEndScreen } from "./endScreen.js";
+
+import { testScreen, mouseClickedForTestScreen } from "./testScreen.js";
+import { preload } from "./preload.js";
 
 window.preload = preload;
 window.draw = draw;
