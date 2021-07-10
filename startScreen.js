@@ -38,7 +38,7 @@ export function startScreen() {
 
   if (startButton.buttonX >= 1280 + startButton.buttonHeight) {
     return true;
-    // screenState = "guide"; (in simulation.js)
+    // screenState = "guide"; (in simulation.jsgu)
   }
 
   pop();

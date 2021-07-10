@@ -17,6 +17,8 @@ import {
   handyVideo,
   sadVideo,
   lightPartyVideo,
+  talkAtLightPartyVideo,
+  dancePartyVideo,
 } from "./preload.js";
 
 let gameScreenState = "argument";
@@ -194,7 +196,6 @@ let sunrise = {
 };
 function sunriseScreen() {
   push();
-
   image(sunriseVideo, 0, 0, 1200, 675);
   sunrise.textbox.display(averiaSansLibreBold);
   sunrise.LeftButton.display(averiaSansLibreRegular);
@@ -287,7 +288,6 @@ let fairygram = {
 };
 function fairygramScreen() {
   push();
-
   image(handyVideo, 0, 0, 1200, 675);
   fairygram.textbox.display(averiaSansLibreBold);
   fairygram.LeftButton.display(averiaSansLibreRegular);
@@ -518,10 +518,9 @@ let attractive = {
     true
   ),
 };
-// image fehlt
 function attractiveScreen() {
   push();
-
+  image(talkAtLightPartyVideo, 0, 0, 1200, 675);
   attractive.textbox.display(averiaSansLibreBold);
   attractive.LeftButton.display(averiaSansLibreRegular);
   attractive.RightButton.display(averiaSansLibreRegular);
@@ -556,7 +555,7 @@ let danceAndNumber = {
 };
 function danceAndNumberScreen() {
   push();
-
+  image(dancePartyVideo, 0, 0, 1200, 675);
   danceAndNumber.textbox.display(averiaSansLibreBold);
   danceAndNumber.LeftButton.display(averiaSansLibreRegular);
   danceAndNumber.RightButton.display(averiaSansLibreRegular);
@@ -703,17 +702,19 @@ export function mouseClickedForGameScreen() {
       // end Auswertung
     } else if (lightParty.RightButton.hitTestCustom()) {
       gameScreenState = "attractive";
+      talkAtLightPartyVideo.loop();
     }
   } else if (gameScreenState === "attractive") {
     if (attractive.LeftButton.hitTestCustom()) {
       // Auswertung
     } else if (attractive.RightButton.hitTestCustom()) {
       gameScreenState = "danceAndNumber";
+      dancePartyVideo.loop();
     }
   } else if (gameScreenState === "danceAndNumber") {
     if (danceAndNumber.LeftButton.hitTestCustom()) {
       gameScreenState = "aloneInBed";
-      // BG nicht richtig angezeigt
+      aloneInBedVideo.loop();
     } else if (danceAndNumber.RightButton.hitTestCustom()) {
       // Auswertung
     }
