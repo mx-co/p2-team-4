@@ -14,6 +14,7 @@ export default class Parameter {
   }
 
   display() {
+    push();
     //filling
     if (this.small()) {
       push();
@@ -34,6 +35,8 @@ export default class Parameter {
     strokeWeight(3);
     noFill();
     rect(this.x, this.y, 350, 40, 30);
+    pop();
+
     pop();
   }
 

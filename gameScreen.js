@@ -3,15 +3,20 @@ import Textbox from "./classes/textbox.js";
 import {
   averiaSansLibreBold,
   averiaSansLibreRegular,
-  aloneInBoatVideo,
   argumentVideo,
-  sunriseVideo,
+  aloneInBoatVideo,
   aloneInBedVideo,
-  handyImg,
+  sunriseVideo,
   aloneAtFavouritePlaceVideo,
   togetherAtFavouritePlaceVideo,
-  kitchenImg,
   movieNightVideo,
+  friendIsCallingVideo,
+  kitchenImg,
+  aboutExImg,
+  talkAboutExImg,
+  handyVideo,
+  sadVideo,
+  lightPartyVideo,
 } from "./preload.js";
 
 let gameScreenState = "argument";
@@ -283,7 +288,7 @@ let fairygram = {
 function fairygramScreen() {
   push();
 
-  image(handyImg, 0, 0, 1200, 675);
+  image(handyVideo, 0, 0, 1200, 675);
   fairygram.textbox.display(averiaSansLibreBold);
   fairygram.LeftButton.display(averiaSansLibreRegular);
   fairygram.RightButton.display(averiaSansLibreRegular);
@@ -317,9 +322,9 @@ let sad = {
     true
   ),
 };
-// imgage fehlt
 function sadScreen() {
   push();
+  image(sadVideo, 0, 0, 1200, 675);
   sad.textbox.display(averiaSansLibreBold);
   sad.LeftButton.display(averiaSansLibreRegular);
   sad.RightButton.display(averiaSansLibreRegular);
@@ -332,7 +337,7 @@ let friendIsCalling = {
     530,
     600,
     100,
-    "Dein Läutling klingelt und dein/e beste/r Freund/in schlägt vor etwas zu unternehmen. Worauf du Lust hast?"
+    "Dein Läutling klingelt und dein bester Freund schlägt vor, \netwas zu unternehmen, worauf du Lust hast?"
   ),
 
   LeftButton: new AnswerButton(
@@ -352,11 +357,9 @@ let friendIsCalling = {
     true
   ),
 };
-// image fehlt
 function friendIsCallingScreen() {
   push();
-  background(0, 200, 100);
-
+  image(friendIsCallingVideo, 0, 0, 1200, 675);
   friendIsCalling.textbox.display(averiaSansLibreBold);
   friendIsCalling.LeftButton.display(averiaSansLibreRegular);
   friendIsCalling.RightButton.display(averiaSansLibreRegular);
@@ -389,10 +392,9 @@ let aboutEx = {
     true
   ),
 };
-// image fehlt
 function aboutExScreen() {
   push();
-
+  image(aboutExImg, 0, 0, 1200, 675);
   aboutEx.textbox.display(averiaSansLibreBold);
   aboutEx.LeftButton.display(averiaSansLibreRegular);
   aboutEx.RightButton.display(averiaSansLibreRegular);
@@ -413,7 +415,7 @@ let talkAboutEx = {
     620,
     300,
     50,
-    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü sehr vermisse und erzähle Geschichten aus der Vergangenheit.",
+    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü sehr vermisse und \nerzähle Geschichten aus der Vergangenheit.",
     true
   ),
   RightButton: new AnswerButton(
@@ -425,10 +427,9 @@ let talkAboutEx = {
     true
   ),
 };
-// imgage fehlt
 function talkAboutExScreen() {
   push();
-
+  image(talkAboutExImg, 0, 0, 1200, 675);
   talkAboutEx.textbox.display(averiaSansLibreBold);
   talkAboutEx.LeftButton.display(averiaSansLibreRegular);
   talkAboutEx.RightButton.display(averiaSansLibreRegular);
@@ -462,7 +463,7 @@ let lightParty = {
     530,
     600,
     100,
-    "Du gehst mit deinen Freunden zum Lichterball. Sie bieten dir an, etwas mit ihnen zu trinken."
+    "Du gehst mit deinen Freunden zum Lichterball. \nSie bieten dir an, etwas mit ihnen zu trinken."
   ),
 
   LeftButton: new AnswerButton(
@@ -482,10 +483,9 @@ let lightParty = {
     true
   ),
 };
-// image fehglt
 function lightPartyScreen() {
   push();
-
+  image(lightPartyVideo, 0, 0, 1200, 675);
   lightParty.textbox.display(averiaSansLibreBold);
   lightParty.LeftButton.display(averiaSansLibreRegular);
   lightParty.RightButton.display(averiaSansLibreRegular);
@@ -588,7 +588,7 @@ export function gameScreen() {
     friendIsCallingScreen();
   } else if (gameScreenState === "aboutEx") {
     aboutExScreen();
-  } else if (gameScreenState === "talbAboutEx") {
+  } else if (gameScreenState === "talkAboutEx") {
     talkAboutExScreen();
   } else if (gameScreenState === "selectMovie") {
     selectMovieScreen();
@@ -648,19 +648,23 @@ export function mouseClickedForGameScreen() {
       aloneInBedVideo.loop();
     } else if (kitchen.RightButton.hitTestCustom()) {
       gameScreenState = "friendIsCalling";
+      friendIsCallingVideo.loop();
     }
   } else if (gameScreenState === "aloneInBed") {
     if (aloneInBed.LeftButton.hitTestCustom()) {
       gameScreenState = "fairygram";
-      // animationStart
+      handyVideo.loop();
     } else if (aloneInBed.RightButton.hitTestCustom()) {
       gameScreenState = "fairygram";
+      handyVideo.loop();
     }
   } else if (gameScreenState === "fairygram") {
     if (fairygram.LeftButton.hitTestCustom()) {
       gameScreenState = "sad";
+      sadVideo.loop();
     } else if (fairygram.RightButton.hitTestCustom()) {
       gameScreenState = "sad";
+      sad.loop();
     }
   } else if (gameScreenState === "sad") {
     if (sad.LeftButton.hitTestCustom()) {
@@ -673,6 +677,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "aboutEx";
     } else if (friendIsCalling.RightButton.hitTestCustom()) {
       gameScreenState = "lightParty";
+      lightPartyVideo.loop();
     }
   } else if (gameScreenState === "aboutEx") {
     if (aboutEx.LeftButton.hitTestCustom()) {

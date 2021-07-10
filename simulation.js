@@ -12,7 +12,7 @@ window.mouseClicked = mouseClicked;
 
 angleMode(DEGREES);
 
-let screenState = "end";
+let screenState = "game";
 
 function mouseClicked() {
   if (screenState === "start") {
