@@ -10,6 +10,8 @@ export let averiaSansLibreLight;
 export let averiaSansLibreLightItalic;
 export let averiaSansLibreRegular;
 
+export let backgroundMusic;
+
 // startScreen
 export let greenCircle;
 export let startBGImg;
@@ -36,6 +38,10 @@ export let kitchenImg;
 
 // guideScreen
 export let guideScreenVideo;
+
+// preEndScreen
+export let positiveThinkingImg;
+export let negativeThinkingImg;
 
 // endScreen
 export let positiveEndingVideo;
@@ -121,6 +127,15 @@ function preloadForGameScreen() {
   kitchenImg = loadImage("./assets/img/backgroundScreens/kitchen.PNG");
 }
 
+function preloadForPreEndScreen() {
+  positiveThinkingImg = loadImage(
+    "./assets/img/backgroundScreens/positiveThinking.png"
+  );
+  negativeThinkingImg = loadImage(
+    "./assets/img/backgroundScreens/negativeThinking.png"
+  );
+}
+
 function preloadForEndScreen() {
   positiveEndingVideo = createVideo("./assets/img/video/positiveEnding.mp4");
   positiveEndingVideo.hide();
@@ -131,9 +146,15 @@ function preloadForEndScreen() {
 export function preload() {
   loadAveriaFonts();
 
+  backgroundMusic = loadSound(
+    "./assets/sounds/soundscrate-the-friendly-elf.mp3"
+  );
+
   preloadForTestScreen();
   preloadForStartScreen();
   preloadForGuideScreen();
   preloadForGameScreen();
+  preloadForPreEndScreen();
+
   preloadForEndScreen();
 }
