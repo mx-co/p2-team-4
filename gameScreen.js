@@ -1,5 +1,6 @@
 import AnswerButton from "./classes/answerButton.js";
 import Textbox from "./classes/textbox.js";
+import ThinkingText from "./classes/thinkingText.js";
 import {
   averiaSansLibreBold,
   averiaSansLibreRegular,
@@ -19,6 +20,8 @@ import {
   lightPartyVideo,
   talkAtLightPartyVideo,
   dancePartyVideo,
+  positiveThinkingImg,
+  negativeThinkingImg,
 } from "./preload.js";
 
 let gameScreenState = "argument";
@@ -562,6 +565,57 @@ function danceAndNumberScreen() {
   pop();
 }
 
+// Text for positive and negative preEndScreen
+
+// Text fehlt noch
+let positives = {
+  cleanUp: new ThinkingText("Das ist ein test fürs Aufräumen"),
+  evenningHope: new ThinkingText("Das ist Abend mit"),
+  badSideGoodEffect: new ThinkingText("sda"),
+  goodNewChance: new ThinkingText("sdfs"),
+};
+
+let negatives = {
+  emptiness: new ThinkingText("sdfsdf"),
+  missOldTime: new ThinkingText("sdfsghfd"),
+  painfulFeelings: new ThinkingText("ffgkdj"),
+  badNewChance: new ThinkingText("sdfs"),
+  drained: new ThinkingText("ausgelaugt"),
+};
+
+function positivePreEndScreen() {
+  push();
+  image(positiveThinkingImg, 0, 0, 1200, 675);
+
+  if (gameScreenState === "cleanUp") {
+    positives.cleanUp.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "evenningHope") {
+    positives.evenningHope.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "badSideGoodEffect") {
+    positives.badSideGoodEffect.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "goodNewChance") {
+    positives.goodNewChance.display(averiaSansLibreRegular);
+  }
+
+  pop();
+}
+
+function negativePreEndScreen() {
+  push();
+  image(negativeThinkingImg, 0, 0, 1200, 675);
+  if (gameScreenState === "emptiness") {
+    negatives.emptiness.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "missOldTime") {
+    negatives.missOldTime.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "painfulFeelings") {
+    negatives.painfulFeelings.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "badNewChance") {
+    negatives.badNewChance.display(averiaSansLibreRegular);
+  } else if (gameScreenState === "drained")
+    negatives.drained.display(averiaSansLibreRegular);
+  pop();
+}
+
 export function gameScreen() {
   push();
 
@@ -597,8 +651,23 @@ export function gameScreen() {
     attractiveScreen();
   } else if (gameScreenState === "danceAndNumber") {
     danceAndNumberScreen();
+  } else if (
+    gameScreenState == "cleanUp" ||
+    gameScreenState == "evenningHope" ||
+    gameScreenState == "badSideGoodEffect" ||
+    gameScreenState == "goodNewChance"
+  ) {
+    positivePreEndScreen();
+  } else if (
+    gameScreenState == "emptiness" ||
+    gameScreenState == "missOldTime" ||
+    gameScreenState == "painfulFeelings" ||
+    gameScreenState == "badNewChance"
+  ) {
+    negativePreEndScreen();
   }
   pop();
+  console.log(gameScreenState);
 }
 
 export function mouseClickedForGameScreen() {
@@ -663,12 +732,14 @@ export function mouseClickedForGameScreen() {
       sadVideo.loop();
     } else if (fairygram.RightButton.hitTestCustom()) {
       gameScreenState = "sad";
-      sad.loop();
+      sadVideo.loop();
     }
   } else if (gameScreenState === "sad") {
     if (sad.LeftButton.hitTestCustom()) {
+      gameScreenState = "cleanUp";
       // end aswertung
     } else if (sad.RightButton.hitTestCustom()) {
+      gameScreenState = "emptiness";
       // end Auswetung
     }
   } else if (gameScreenState === "friendIsCalling") {
@@ -687,18 +758,23 @@ export function mouseClickedForGameScreen() {
     }
   } else if (gameScreenState === "talkAboutEx") {
     if (talkAboutEx.LeftButton.hitTestCustom()) {
+      gameScreenState = "painfulFeelings";
       // end
     } else if (talkAboutEx.RightButton.hitTestCustom()) {
+      gameScreenState = "badSideGoodEffect";
       // end
     }
   } else if (gameScreenState === "selectMovie") {
     if (selectMovie.LeftButton.hitTestCustom()) {
+      gameScreenState = "badNewChance";
       // auswertung
     } else if (selectMovie.RightButton.hitTestCustom()) {
+      gameScreenState = "goodNewChance";
       // auswertung
     }
   } else if (gameScreenState === "lightParty") {
     if (lightParty.LeftButton.hitTestCustom()) {
+      gameScreenState = "drained";
       // end Auswertung
     } else if (lightParty.RightButton.hitTestCustom()) {
       gameScreenState = "attractive";
@@ -706,6 +782,7 @@ export function mouseClickedForGameScreen() {
     }
   } else if (gameScreenState === "attractive") {
     if (attractive.LeftButton.hitTestCustom()) {
+      gameScreenState = "missOldTime";
       // Auswertung
     } else if (attractive.RightButton.hitTestCustom()) {
       gameScreenState = "danceAndNumber";
@@ -716,6 +793,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "aloneInBed";
       aloneInBedVideo.loop();
     } else if (danceAndNumber.RightButton.hitTestCustom()) {
+      gameScreenState = "evenningHope";
       // Auswertung
     }
   }
