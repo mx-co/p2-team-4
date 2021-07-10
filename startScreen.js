@@ -3,6 +3,8 @@ import {
   startBGImg,
   greenCircle,
   averiaSansLibreRegular,
+  guideScreenVideo,
+  backgroundMusic,
 } from "./preload.js";
 import Button from "./classes/button.js";
 
@@ -38,7 +40,7 @@ export function startScreen() {
 
   if (startButton.buttonX >= 1280 + startButton.buttonHeight) {
     return true;
-    // screenState = "guide"; (in simulation.jsgu)
+    // screenState = "guide"; (in simulation.js)
   }
 
   pop();
@@ -48,5 +50,11 @@ export function mouseClickedForStartScreen() {
   if (startButton.hitTestCircle()) {
     startButton.gsapAnimationToRight(1200);
     titleButton.gsapAnimationToLeft(200);
+
+    // starts and loops guidsScreen background video
+    guideScreenVideo.loop();
+
+    // starts backgroundMusic
+    // backgroundMusic.loop();
   }
 }
