@@ -720,5 +720,5 @@ export function mouseClickedForGameScreen() {
     }
   }
   //   muss wo anderst gestartet werden (wenn screenState="game" wird)
-  argumentVideo.loop();
+  // argumentVideo.loop();
 }
