@@ -30,7 +30,6 @@ function mouseClicked() {
   }
 }
 
-
 function draw() {
   if (screenState === "start") {
     startScreen();
