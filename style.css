@@ -27,6 +27,8 @@ canvas {
   background: url("./assets/img/backgroundScreens/logoOhneText.PNG");
   background-size: cover;
   position: absolute;
-  width: 70%;
+  /* top: 10%;
+  left: 10%; */
+  width: 80%;
   height: 80%;
 }

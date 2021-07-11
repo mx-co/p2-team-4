@@ -1,4 +1,5 @@
 import AnswerButton from "./classes/answerButton.js";
+import Button from "./classes/button.js";
 import Textbox from "./classes/textbox.js";
 import ThinkingText from "./classes/thinkingText.js";
 import {
@@ -22,39 +23,33 @@ import {
   dancePartyVideo,
   positiveThinkingImg,
   negativeThinkingImg,
+  greenCircle,
+  positiveEndingVideo,
+  negativeEndingVideo,
 } from "./preload.js";
 
-// brauch es hier export???
-export let gameScreenState = "argument";
-
-export let denialCounter = 0;
+export let denialCounter = 10;
 export let angerCounter = 0;
 export let bargainingCounter = 0;
 export let depressionCounter = 0;
 export let acceptanceCounter = 0;
+let gameScreenState = "argument";
+
+let answerButtonPosXLeft = 420;
+let answerButtonPosXRight = 780;
 
 let argument = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du und dein Lieblings-Tüdelü streitet euch. \nEs entscheidet sich daraufhin, weil es unzufrieden mit der Beziehung ist, \nmit dir schluss zu machen. \nWie reagierst du?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich möchte über den Trennungsgrund reden.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich ergreife so schnell wie möglich die Flucht.",
     true
   ),
@@ -74,26 +69,16 @@ function argumentScreen() {
 
 let aloneInBoat = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du sitzt nun alleine und traurig aufgrund der Trennung im Bötchen \nund überlegst, was du tun sollst."
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Besten Freund kontaktieren.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Alleine zum Lieblingsort fahren.",
     true
   ),
@@ -110,26 +95,16 @@ function aloneInBoatScreen() {
 
 let aloneAtFavouritePlace = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "An deinem Lieblingsort angekommen, \nwirst du dir deiner Einsamkeit bewusst. Wie reagierst du darauf?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich lasse meine Gefühlen freien Lauf, \nweine und schreie sie heraus.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich sage mir, dass es nur ein kleiner Streit war \nund das wir uns wieder vertragen können.",
     true
   ),
@@ -145,26 +120,16 @@ function aloneAtFavouritePlaceScreen() {
 
 let togetherAtFavouritePlace = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du triffst dich mit deinem besten Freund an deinem Lieblingsort. \nWorüber möchtest du reden?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich rede über die Trennung und meine Gefühle.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich rede über etwas anderes.",
     true
   ),
@@ -180,26 +145,16 @@ function togetherAtFavouritePlaceScreen() {
 
 let sunrise = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Die Sonne geht auf, ein neuer Tag bricht an. Wie möchtest du in den Tag starte?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Im Blättchen einmummeln.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Etwas in der Küche schmausen.",
     true
   ),
@@ -214,27 +169,15 @@ function sunriseScreen() {
 }
 
 let kitchen = {
-  textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
-    "Das Frühstück war sehr lecker. Als nächste..."
-  ),
+  textbox: new Textbox("Das Frühstück war sehr lecker. Als nächste..."),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "... gehe ich zurück ins Bett.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "... suche ich mir eine Beschäftigung.",
     true
   ),
@@ -250,26 +193,16 @@ function kitchenScreen() {
 
 let aloneInBed = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du rollst alleine im Bett herum und \nnimmst deinen Läutiling zur Hand. Wie entscheidest du dich?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich schaue mir alte Bilder an und \nvermisse die alten Zeiten.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich lösche alte Bilder \nvon meinem Ex-Lieblingstüdeldu.",
     true
   ),
@@ -286,15 +219,15 @@ function aloneInBedScreen() {
 
 let fairygram = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygramm."
   ),
 
-  LeftButton: new AnswerButton(420, 620, 300, 50, "Entfolgen.", true),
-  RightButton: new AnswerButton(780, 620, 300, 50, "Nicht entfolgen.", true),
+  LeftButton: new AnswerButton(answerButtonPosXLeft, "Entfolgen.", true),
+  RightButton: new AnswerButton(
+    answerButtonPosXRight,
+    "Nicht entfolgen.",
+    true
+  ),
 };
 function fairygramScreen() {
   push();
@@ -308,26 +241,16 @@ function fairygramScreen() {
 
 let sad = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du fühlst dich traurig und einsam. Was möchtest du jetzt tun?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Im Bett liegen bleiben und weiterhin mit Social Media ablenken.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Aufstehen und Zimmer aufräumen.",
     true
   ),
@@ -343,26 +266,16 @@ function sadScreen() {
 
 let friendIsCalling = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Dein Läutling klingelt und dein bester Freund schlägt vor, \netwas zu unternehmen, worauf du Lust hast?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Einen entspannten Abend machen.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Auf eine Party gehen.",
     true
   ),
@@ -378,26 +291,16 @@ function friendIsCallingScreen() {
 
 let aboutEx = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du verbringst bisher einen entspannten Abend mit deinen engsten Freunden. \nEiner deiner Freunde spricht dich auf deinen Ex Partner an."
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich entscheide mich, meinen Freunden von der Trennung zu erzählen.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich gehe dem Gespräch aus dem Weg.",
     true
   ),
@@ -412,27 +315,15 @@ function aboutExScreen() {
 }
 
 let talkAboutEx = {
-  textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
-    "Was möchtest du deinen Freunden erzählen."
-  ),
+  textbox: new Textbox("Was möchtest du deinen Freunden erzählen."),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich gebe zu, dass ich mein Lieblings-Tüdeldü sehr vermisse und \nerzähle Geschichten aus der Vergangenheit.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich beschwere mich über mein Ex-Lieblings-Tüdeldü.",
     true
   ),
@@ -448,15 +339,11 @@ function talkAboutExScreen() {
 
 let selectMovie = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Deine Freunde überlassen dir die Filmauswahl. Worauf hast du Lust?"
   ),
 
-  LeftButton: new AnswerButton(420, 620, 300, 50, "Liebesfilm.", true),
-  RightButton: new AnswerButton(780, 620, 300, 50, "Actionfilm.", true),
+  LeftButton: new AnswerButton(answerButtonPosXLeft, "Liebesfilm.", true),
+  RightButton: new AnswerButton(answerButtonPosXRight, "Actionfilm.", true),
 };
 function selectMovieScreen() {
   push();
@@ -469,26 +356,16 @@ function selectMovieScreen() {
 
 let lightParty = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Du gehst mit deinen Freunden zum Lichterball. \nSie bieten dir an, etwas mit ihnen zu trinken."
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Der Alkohol wird mir helfen Spaß zu haben.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich hole mir lieber Blütensaft an der Theke.",
     true
   ),
@@ -504,26 +381,16 @@ function lightPartyScreen() {
 
 let attractive = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Als du dir einen Blütensaft hollen willst, spricht dich ein attraktives Tüdeldü an. Wie verhälst du dich?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich sage, dass ich mich in einer Beziehung befinde.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich lass mich auf das Gespräch ein.",
     true
   ),
@@ -539,26 +406,16 @@ function attractiveScreen() {
 
 let danceAndNumber = {
   textbox: new Textbox(
-    600,
-    530,
-    600,
-    100,
     "Ihr beiden versteht euch wirklich gut. Das Tüdeldü lädt dich zum Tanz ein und fragt anschließend nach deiner Nummer. Wie reagierst du?"
   ),
 
   LeftButton: new AnswerButton(
-    420,
-    620,
-    300,
-    50,
+    answerButtonPosXLeft,
     "Ich lehne ab, weil ich an mein Ex-Lieblings-Tüdeldü denken muss.",
     true
   ),
   RightButton: new AnswerButton(
-    780,
-    620,
-    300,
-    50,
+    answerButtonPosXRight,
     "Ich nehme an. Mal sehen, wohin es uns führt.",
     true
   ),
@@ -573,7 +430,17 @@ function danceAndNumberScreen() {
 }
 
 // Text for positive and negative preEndScreen
-
+let evaluationButton = new Button(
+  800,
+  675 / 2,
+  200,
+  200,
+  "Weiter",
+  true,
+  0,
+  0,
+  20
+);
 // Text fehlt noch
 let positives = {
   cleanUp: new ThinkingText("Das ist ein test fürs Aufräumen"),
@@ -593,6 +460,7 @@ let negatives = {
 function positivePreEndScreen() {
   push();
   image(positiveThinkingImg, 0, 0, 1200, 675);
+  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
 
   if (gameScreenState === "cleanUp") {
     positives.cleanUp.display(averiaSansLibreRegular);
@@ -610,6 +478,8 @@ function positivePreEndScreen() {
 function negativePreEndScreen() {
   push();
   image(negativeThinkingImg, 0, 0, 1200, 675);
+  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
+
   if (gameScreenState === "emptiness") {
     negatives.emptiness.display(averiaSansLibreRegular);
   } else if (gameScreenState === "missOldTime") {
@@ -624,6 +494,7 @@ function negativePreEndScreen() {
 }
 
 export function gameScreen() {
+  console.log(gameScreenState);
   push();
 
   if (gameScreenState === "argument") {
@@ -669,7 +540,8 @@ export function gameScreen() {
     gameScreenState == "emptiness" ||
     gameScreenState == "missOldTime" ||
     gameScreenState == "painfulFeelings" ||
-    gameScreenState == "badNewChance"
+    gameScreenState == "badNewChance" ||
+    gameScreenState === "drained"
   ) {
     negativePreEndScreen();
   }
@@ -802,7 +674,31 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "evenningHope";
       // Auswertung
     }
+  } else if (
+    gameScreenState == "cleanUp" ||
+    gameScreenState == "evenningHope" ||
+    gameScreenState == "badSideGoodEffect" ||
+    gameScreenState == "goodNewChance" ||
+    gameScreenState == "emptiness" ||
+    gameScreenState == "missOldTime" ||
+    gameScreenState == "painfulFeelings" ||
+    gameScreenState == "badNewChance"
+  ) {
+    if (evaluationButton.hitTestCircle()) {
+      positiveEndingVideo.loop();
+      negativeEndingVideo.loop();
+      return true;
+    }
   }
-  //   muss wo anderst gestartet werden (wenn screenState="game" wird)
+  // startet woanderst nicht gleichzeitig mit Text
   // argumentVideo.loop();
+}
+
+export function resetCounters() {
+  gameScreenState = "argument";
+  denialCounter = 0;
+  angerCounter = 0;
+  bargainingCounter = 0;
+  depressionCounter = 0;
+  acceptanceCounter = 0;
 }

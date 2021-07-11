@@ -20,7 +20,7 @@ export default class Parameter {
     if (this.small()) {
       push();
       noStroke();
-      fill(255);
+      fill(255, 255, 22, 100);
       ellipse(this.x + 20, this.y + 20, this.parameterWidth);
       pop();
     } else {
@@ -52,5 +52,9 @@ export default class Parameter {
       ease: "linear",
       parameterWidth: (350 / this.maximum) * this.value,
     });
+  }
+
+  parameterAnimationReset() {
+    this.parameterWidth = 0;
   }
 }

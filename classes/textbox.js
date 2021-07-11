@@ -1,9 +1,9 @@
 export default class Textbox {
-  constructor(signX, signY, signWidth, signHeight, signText) {
-    this.signX = signX;
-    this.signY = signY;
-    this.signWidth = signWidth;
-    this.signHeight = signHeight;
+  constructor(signText) {
+    this.signX = 600;
+    this.signY = 560;
+    this.signWidth = 700;
+    this.signHeight = 80;
     this.signText = signText;
   }
 

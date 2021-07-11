@@ -12,6 +12,7 @@ export default class Button extends ButtonHitTest {
     textOffsetY,
     textSize
   ) {
+
     super(buttonX, buttonY, buttonWidth, buttonHeight);
     this.buttonText = buttonText;
     this.buttonScale = 1;
@@ -27,7 +28,7 @@ export default class Button extends ButtonHitTest {
     scale(this.buttonScale);
     noStroke();
     fill(42, 87, 66);
-    ellipse(0, 0, this.buttonHeight);
+    // ellipse(0, 0, this.buttonHeight);
 
     push();
     imageMode(CENTER);

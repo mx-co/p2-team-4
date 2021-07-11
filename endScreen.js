@@ -12,6 +12,7 @@ import {
   bargainingCounter,
   denialCounter,
   depressionCounter,
+  resetCounters,
 } from "./gameScreen.js";
 import Button from "./classes/button.js";
 
@@ -45,28 +46,41 @@ export function endScreen() {
   push();
 
   // bedingung nicht richtig
-  if (denialCounter > acceptanceCounter) {
+  if (denialCounter < acceptanceCounter) {
     image(positiveEndingVideo, 0, 0, 1200, 675);
   } else {
     image(negativeEndingVideo, 0, 0, 1200, 675);
   }
-  // background(100, 230, 100);
+  background(100, 230, 100);
   fiveParameter();
   againButton.display(averiaSansLibreBold, greenCircle, 0.3);
   pop();
-  // console.log(acceptanceCounter);
+  filling();
+}
+
+let fillingIsActive = true;
+function filling() {
+  if (fillingIsActive) {
+    denial.parameterAnimation();
+    anger.parameterAnimation();
+    bargaining.parameterAnimation();
+    depression.parameterAnimation();
+    acceptance.parameterAnimation();
+    fillingIsActive = false;
+  }
 }
 
 export function mouseClickedForEndScreen() {
   positiveEndingVideo.loop();
   negativeEndingVideo.loop();
-  anger.parameterAnimation();
-  denial.parameterAnimation();
-  bargaining.parameterAnimation();
-  depression.parameterAnimation();
-  acceptance.parameterAnimation();
 
   if (againButton.hitTestCircle()) {
-    // acceptanceCounter = 0;
-  } //funktioniert nicht
+    denial.parameterAnimationReset();
+    anger.parameterAnimationReset();
+    bargaining.parameterAnimationReset();
+    depression.parameterAnimationReset();
+    acceptance.parameterAnimationReset();
+    fillingIsActive = true;
+    return true;
+  }
 }
