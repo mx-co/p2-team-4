@@ -24,7 +24,14 @@ import {
   negativeThinkingImg,
 } from "./preload.js";
 
-let gameScreenState = "argument";
+// brauch es hier export???
+export let gameScreenState = "argument";
+
+export let denialCounter = 0;
+export let angerCounter = 0;
+export let bargainingCounter = 0;
+export let depressionCounter = 0;
+export let acceptanceCounter = 0;
 
 let argument = {
   textbox: new Textbox(
@@ -667,7 +674,6 @@ export function gameScreen() {
     negativePreEndScreen();
   }
   pop();
-  console.log(gameScreenState);
 }
 
 export function mouseClickedForGameScreen() {

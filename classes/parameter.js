@@ -1,10 +1,11 @@
 export default class Parameter {
-  constructor(x, y, value, maximum) {
+  constructor(x, y, value, maximum, text) {
     this.x = x;
     this.y = y;
     this.value = value;
     this.maximum = maximum;
     this.parameterWidth = 0;
+    this.text = text;
   }
 
   small() {
@@ -13,7 +14,7 @@ export default class Parameter {
     }
   }
 
-  display() {
+  display(font) {
     push();
     //filling
     if (this.small()) {
@@ -36,6 +37,11 @@ export default class Parameter {
     noFill();
     rect(this.x, this.y, 350, 40, 30);
     pop();
+
+    // text
+    textFont(font);
+    textAlign(LEFT, CENTER);
+    text(this.text, this.x + 20, this.y + 20);
 
     pop();
   }

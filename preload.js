@@ -11,10 +11,14 @@ export let averiaSansLibreLightItalic;
 export let averiaSansLibreRegular;
 
 export let backgroundMusic;
+export let buttonClickSound;
 
 // startScreen
 export let greenCircle;
 export let startBGImg;
+
+// guideScreen
+export let guideScreenVideo;
 
 // gameScreen
 export let aloneInBoatVideo;
@@ -35,9 +39,6 @@ export let dancePartyVideo;
 export let aboutExImg;
 export let talkAboutExImg;
 export let kitchenImg;
-
-// guideScreen
-export let guideScreenVideo;
 
 // preEndScreen
 export let positiveThinkingImg;
@@ -125,9 +126,6 @@ function preloadForGameScreen() {
   aboutExImg = loadImage("./assets/img/backgroundScreens/funEvening.png");
   talkAboutExImg = loadImage("./assets/img/backgroundScreens/talking.png");
   kitchenImg = loadImage("./assets/img/backgroundScreens/kitchen.PNG");
-}
-
-function preloadForPreEndScreen() {
   positiveThinkingImg = loadImage(
     "./assets/img/backgroundScreens/positiveThinking.png"
   );
@@ -149,12 +147,16 @@ export function preload() {
   backgroundMusic = loadSound(
     "./assets/sounds/soundscrate-the-friendly-elf.mp3"
   );
+  backgroundMusic.setVolume(0.1);
+
+  buttonClickSound = loadSound(
+    "./assets/sounds/soundscrate-graphics-application-notification-4.wav"
+  );
+  buttonClickSound.setVolume(0.4);
 
   preloadForTestScreen();
   preloadForStartScreen();
   preloadForGuideScreen();
   preloadForGameScreen();
-  preloadForPreEndScreen();
-
   preloadForEndScreen();
 }

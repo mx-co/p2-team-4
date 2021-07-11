@@ -4,6 +4,7 @@ import {
   greenCircle,
   argumentVideo,
   guideScreenVideo,
+  buttonClickSound,
 } from "./preload.js";
 import Button from "./classes/button.js";
 
@@ -46,6 +47,7 @@ export function mouseClickedForGuideScreen() {
 
   if (startGuideButton.hitTestCircle()) {
     argumentVideo.loop();
+    buttonClickSound.play();
 
     return true;
   }

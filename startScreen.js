@@ -5,6 +5,7 @@ import {
   averiaSansLibreRegular,
   guideScreenVideo,
   backgroundMusic,
+  buttonClickSound,
 } from "./preload.js";
 import Button from "./classes/button.js";
 
@@ -54,7 +55,9 @@ export function mouseClickedForStartScreen() {
     // starts and loops guidsScreen background video
     guideScreenVideo.loop();
 
+    buttonClickSound.play();
     // starts backgroundMusic
-    // backgroundMusic.loop();
+    // event bei nochmal spielen nicht ausschalten
+    backgroundMusic.loop();
   }
 }
