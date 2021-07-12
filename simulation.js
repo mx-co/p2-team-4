@@ -7,7 +7,6 @@ import {
 } from "./gameScreen.js";
 import { endScreen, mouseClickedForEndScreen } from "./endScreen.js";
 
-import { testScreen, mouseClickedForTestScreen } from "./testScreen.js";
 import { preload } from "./preload.js";
 
 window.preload = preload;
@@ -19,27 +18,21 @@ angleMode(DEGREES);
 let screenState = "start";
 
 function mouseClicked() {
-  // besonders in startScreen wird hitTest ausserhlab des Canvas erkannt
-  if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
-    if (screenState === "start") {
-      mouseClickedForStartScreen();
-    } else if (screenState === "guide") {
-      if (mouseClickedForGuideScreen()) {
-        screenState = "game";
-      }
-    } else if (screenState === "game") {
-      if (mouseClickedForGameScreen()) {
-        screenState = "end";
-      }
-    } else if (screenState === "end") {
-      if (mouseClickedForEndScreen()) {
-        resetCounters();
-        screenState = "start";
-      }
+  if (screenState === "start") {
+    mouseClickedForStartScreen();
+  } else if (screenState === "guide") {
+    if (mouseClickedForGuideScreen()) {
+      screenState = "game";
     }
-    // koomt RAUS
-    else if (screenState === "test") {
-      mouseClickedForTestScreen();
+  } else if (screenState === "game") {
+    if (mouseClickedForGameScreen()) {
+      screenState = "end";
+    }
+  } else if (screenState === "end") {
+    if (mouseClickedForEndScreen()) {
+      resetCounters();
+      console.log("reset");
+      screenState = "start";
     }
   }
 }
@@ -57,7 +50,5 @@ function draw() {
     gameScreen();
   } else if (screenState === "end") {
     endScreen();
-  } else if (screenState === "test") {
-    testScreen();
   }
 }
