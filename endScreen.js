@@ -1,6 +1,7 @@
 import {
   averiaSansLibreBold,
   averiaSansLibreRegular,
+  buttonClickSound,
   greenCircle,
   negativeEndingVideo,
   positiveEndingVideo,
@@ -12,15 +13,14 @@ import {
   bargainingCounter,
   denialCounter,
   depressionCounter,
-  resetCounters,
 } from "./gameScreen.js";
 import Button from "./classes/button.js";
 
-let denial = new Parameter(30, 15, denialCounter, 12, "Denial");
-let anger = new Parameter(30, 60, angerCounter, 12, "Anger");
-let bargaining = new Parameter(30, 105, bargainingCounter, 12, "Bargaining");
+let denial = new Parameter(30, 15, denialCounter, 12, "Verweigerung");
+let anger = new Parameter(30, 60, angerCounter, 12, "Zorn");
+let bargaining = new Parameter(30, 105, bargainingCounter, 12, "Verhandeln");
 let depression = new Parameter(30, 150, depressionCounter, 12, "Depression");
-let acceptance = new Parameter(30, 195, acceptanceCounter, 12, "Acceptance");
+let acceptance = new Parameter(30, 195, acceptanceCounter, 12, "Akzeptanz");
 
 let againButton = new Button(
   1050,
@@ -81,6 +81,7 @@ export function mouseClickedForEndScreen() {
     depression.parameterAnimationReset();
     acceptance.parameterAnimationReset();
     fillingIsActive = true;
+    buttonClickSound.play();
     return true;
   }
 }
