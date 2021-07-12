@@ -26,15 +26,13 @@ export default class AnswerButton extends ButtonHitTest {
     );
 
     if (this.hoverAnimationIsActive && this.hitTestCustom()) {
-      this.buttonScale = 1.02;
       stroke(62, 58, 53);
     } else {
-      this.buttonScale = 1;
       // noStroke();
       stroke(244, 245, 234);
     }
 
-    strokeWeight(2);
+    strokeWeight(3);
     noFill();
     rect(
       -this.buttonWidth / 2 - this.buttonHeight / 2,
