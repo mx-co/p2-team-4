@@ -27,6 +27,7 @@ import {
   positiveEndingVideo,
   negativeEndingVideo,
   buttonClickSound,
+  blueCircle,
 } from "./preload.js";
 
 let denialCounter = 0;
@@ -302,12 +303,12 @@ let aboutEx = {
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich entscheide mich, meinen Freunden von der Trennung zu erzählen.",
+    "Ich entscheide mich, meinen Freunden von \nder Trennung zu erzählen.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich gehe dem Gespräch aus dem Weg und sage nur dass es ihm gut geht.",
+    "Ich gehe dem Gespräch aus dem Weg und \nsage nur dass es ihm gut geht.",
     true
   ),
 };
@@ -325,12 +326,12 @@ let talkAboutEx = {
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü vermisse.",
+    "Ich gebe zu, dass ich \nmein Lieblings-Tüdeldü vermisse.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich beschwere mich über mein Ex-Lieblings-Tüdeldü.",
+    "Ich beschwere mich über \nmein Ex-Lieblings-Tüdeldü.",
     true
   ),
 };
@@ -437,36 +438,54 @@ function danceAndNumberScreen() {
 
 // Text for positive and negative preEndScreen
 let evaluationButton = new Button(
-  800,
-  675 / 2,
-  200,
-  200,
+  1120,
+  570,
+  300,
+  300,
   "Weiter",
   true,
-  0,
-  0,
-  20
+  -20,
+  -20,
+  50
 );
-// Text fehlt noch
+
 let positives = {
-  cleanUp: new ThinkingText("Das ist ein test fürs Aufräumen"),
-  evenningHope: new ThinkingText("Das ist Abend mit"),
-  badSideGoodEffect: new ThinkingText("sda"),
-  goodNewChance: new ThinkingText("sdfs"),
+  cleanUp: new ThinkingText(
+    "Ich fühle mich wohl in meinem Zimmer. \nAußerdem hatte ich beim Aufräumen Zeit zum Nachdenken."
+  ),
+  evenningHope: new ThinkingText(
+    "Abends liege ich im Bett und denke über \nden schönen Abend nach. Ich bin immer noch ein \nwenig traurig aber auch hoffnungsvoll."
+  ),
+  badSideGoodEffect: new ThinkingText(
+    "Ich sehe ein, dass es auch schlechte Seiten \nan meiner Beziehung gab und die Trennung somit \nauch positive Auswirkungen hat."
+  ),
+  goodNewChance: new ThinkingText(
+    "Ich genieße die Zeit mit meinen Freunden und \nfühle mich nicht mehr so alleine."
+  ),
 };
 
 let negatives = {
-  emptiness: new ThinkingText("sdfsdf"),
-  missOldTime: new ThinkingText("sdfsghfd"),
-  painfulFeelings: new ThinkingText("ffgkdj"),
-  badNewChance: new ThinkingText("sdfs"),
-  drained: new ThinkingText("ausgelaugt"),
+  emptiness: new ThinkingText(
+    "Sobald ich mein Läutling weglege, \nspüre ich die Leere in mir. \nMein Verhalten hat mir gar nicht geholfen."
+  ),
+  missOldTime: new ThinkingText(
+    "Abends sitze ich wieder alleine in meinem Bett, \nvermisse mein Ex-Lieblingstüdeldü und \nwünsche die alte Zeit zurück"
+  ),
+  painfulFeelings: new ThinkingText(
+    "Es hat gut getan über meine Gefühle zu sprechen. \nTrotzdem schmerzt mich der Verlust \nvon meinem Ex-Lieblingstüdeldü."
+  ),
+  badNewChance: new ThinkingText(
+    "Während dem Film muss ich an \nmein Ex-Lieblingstüdeldü denken. \nVielleicht gibt es noch eine Chance für uns."
+  ),
+  drained: new ThinkingText(
+    "Ich wache am nächsten Morgen auf und \nfühle mich körperlich und psychisch ausgelaugt. \nDer Alkohol war nur eine kurze Freude."
+  ),
 };
 
 function positivePreEndScreen() {
   push();
   image(positiveThinkingImg, 0, 0, 1200, 675);
-  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
+  evaluationButton.display(averiaSansLibreBold, blueCircle, 0.45);
 
   if (gameScreenState === "cleanUp") {
     positives.cleanUp.display(averiaSansLibreRegular);
@@ -484,7 +503,7 @@ function positivePreEndScreen() {
 function negativePreEndScreen() {
   push();
   image(negativeThinkingImg, 0, 0, 1200, 675);
-  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
+  evaluationButton.display(averiaSansLibreBold, blueCircle, 0.45);
 
   if (gameScreenState === "emptiness") {
     negatives.emptiness.display(averiaSansLibreRegular);
