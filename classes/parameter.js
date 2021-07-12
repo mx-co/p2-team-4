@@ -1,10 +1,11 @@
 export default class Parameter {
-  constructor(x, y, value, maximum) {
+  constructor(x, y, value, maximum, text) {
     this.x = x;
     this.y = y;
     this.value = value;
     this.maximum = maximum;
     this.parameterWidth = 0;
+    this.text = text;
   }
 
   small() {
@@ -13,12 +14,13 @@ export default class Parameter {
     }
   }
 
-  display() {
+  display(font) {
+    push();
     //filling
     if (this.small()) {
       push();
       noStroke();
-      fill(255);
+      fill(255, 255, 22, 100);
       ellipse(this.x + 20, this.y + 20, this.parameterWidth);
       pop();
     } else {
@@ -35,6 +37,13 @@ export default class Parameter {
     noFill();
     rect(this.x, this.y, 350, 40, 30);
     pop();
+
+    // text
+    textFont(font);
+    textAlign(LEFT, CENTER);
+    text(this.text, this.x + 20, this.y + 20);
+
+    pop();
   }
 
   parameterAnimation() {
@@ -43,5 +52,9 @@ export default class Parameter {
       ease: "linear",
       parameterWidth: (350 / this.maximum) * this.value,
     });
+  }
+
+  parameterAnimationReset() {
+    this.parameterWidth = 0;
   }
 }
