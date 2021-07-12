@@ -32,7 +32,7 @@ export default class Button extends ButtonHitTest {
     push();
     imageMode(CENTER);
     scale(imgSize);
-    image(myImg, 0, 0);
+    image(myImg, -15, 5);
     pop();
 
     fill(243, 233, 214);
