@@ -38,7 +38,7 @@ export function startScreen() {
   titleButton.display(averiaSansLibreBold, greenCircle, 1.1);
   titleButton.subTitle(
     averiaSansLibreRegular,
-    "eine Reise zur Veränderung \ndes Mindsets",
+    "Eine Reise zur Veränderung \ndes Mindsets",
     30,
     90,
     100

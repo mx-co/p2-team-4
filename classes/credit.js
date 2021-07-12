@@ -19,7 +19,7 @@ export default class Credit {
     text("Metanoia", 0, -210);
 
     textSize(20);
-    text("eine Reise zur Veränderung \ndes Mindsets", 0, -150);
+    text("Eine Reise zur Veränderung \ndes Mindsets", 0, -150);
 
     textFont(fontRegular);
     text(
