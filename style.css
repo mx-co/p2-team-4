@@ -24,8 +24,9 @@ canvas {
 }
 
 #p5_loading {
+  /* background: rgba(128, 255, 0, 0.425); */
   background: url("./assets/img/backgroundScreens/logoOhneText.PNG");
-  /* background-size: cover; */
+  background-size: cover;
   position: absolute;
 
   top: 0%;
