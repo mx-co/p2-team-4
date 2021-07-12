@@ -7,9 +7,6 @@ export default class ThinkingText {
     push();
     textSize(30);
 
-    // eventuell
-    // textLeading();
-
     textFont(font);
     // x y anpassen
     text(this.text, 600, 300);
