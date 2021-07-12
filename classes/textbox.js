@@ -16,7 +16,8 @@ export default class Textbox {
       -this.signWidth / 2,
       -this.signHeight / 2,
       this.signWidth,
-      this.signHeight
+      this.signHeight,
+      5
     );
 
     fill(0, 0, 0);
