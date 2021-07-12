@@ -1,11 +1,8 @@
 // Font Variable
 export let averiaSansLibreBold;
-export let averiaSansLibreBoldItalic;
-export let averiaSansLibreItalic;
-export let averiaSansLibreLight;
-export let averiaSansLibreLightItalic;
 export let averiaSansLibreRegular;
 
+// AllScreens
 export let backgroundMusic;
 export let buttonClickSound;
 export let greenCircle;
@@ -46,23 +43,9 @@ export let positiveEndingVideo;
 export let negativeEndingVideo;
 
 function loadAveriaFonts() {
-  averiaSansLibreBold = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Bold.ttf"
-  );
-  averiaSansLibreBoldItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-BoldItalic.ttf"
-  );
-  averiaSansLibreItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Italic.ttf"
-  );
-  averiaSansLibreLight = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Light.ttf"
-  );
-  averiaSansLibreLightItalic = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-LightItalic.ttf"
-  );
+  averiaSansLibreBold = loadFont("./assets/fonts/AveriaSansLibre-Bold.ttf");
   averiaSansLibreRegular = loadFont(
-    "./assets/fonts/averia/AveriaSansLibre-Regular.ttf"
+    "./assets/fonts/AveriaSansLibre-Regular.ttf"
   );
 }
 
@@ -138,7 +121,10 @@ function preloadForEndScreen() {
 
 export function preload() {
   loadAveriaFonts();
-
+  preloadForStartScreen();
+  preloadForGuideScreen();
+  preloadForGameScreen();
+  preloadForEndScreen();
   backgroundMusic = loadSound(
     "./assets/sounds/soundscrate-the-friendly-elf.mp3"
   );
@@ -149,11 +135,6 @@ export function preload() {
   );
   buttonClickSound.setVolume(0.4);
 
-  greenCircle = loadImage("./assets/img/greenCircle2.png");
+  greenCircle = loadImage("./assets/img/greenCircle.png");
   blueCircle = loadImage("./assets/img/blueCircle.png");
-
-  preloadForStartScreen();
-  preloadForGuideScreen();
-  preloadForGameScreen();
-  preloadForEndScreen();
 }
