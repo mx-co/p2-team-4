@@ -28,7 +28,7 @@ export default class AnswerButton extends ButtonHitTest {
     if (this.hoverAnimationIsActive && this.hitTestCustom()) {
       stroke(244, 245, 234);
     } else {
-      stroke(62, 58, 53);
+      noStroke();
     }
 
     strokeWeight(3);
