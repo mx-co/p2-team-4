@@ -38,7 +38,7 @@ export function guideScreen() {
 
 export function mouseClickedForGuideScreen() {
   // zum testen
-  guideScreenVideo.loop();
+  // guideScreenVideo.loop();
 
   if (startGuideButton.hitTestCircle()) {
     argumentVideo.loop();
