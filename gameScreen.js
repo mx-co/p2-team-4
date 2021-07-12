@@ -29,11 +29,13 @@ import {
   buttonClickSound,
 } from "./preload.js";
 
-export let denialCounter = 0;
-export let angerCounter = 0;
-export let bargainingCounter = 0;
-export let depressionCounter = 0;
-export let acceptanceCounter = 0;
+let denialCounter = 0;
+let angerCounter = 0;
+let bargainingCounter = 0;
+let depressionCounter = 0;
+let acceptanceCounter = 0;
+
+let decisionCounter = 0;
 
 let gameScreenState = "argument";
 
@@ -559,6 +561,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "aloneInBoat";
       aloneInBoatVideo.loop();
       buttonClickSound.play();
+      decisionCounter += 1;
     }
     if (argument.LeftButton.hitTestCustom()) {
       acceptanceCounter += 1;
@@ -572,12 +575,14 @@ export function mouseClickedForGameScreen() {
       togetherAtFavouritePlaceVideo.loop();
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     } else if (aloneInBoat.RightButton.hitTestCustom()) {
       gameScreenState = "aloneAtFavouritePlace";
       aloneAtFavouritePlaceVideo.loop();
       buttonClickSound.play();
       depressionCounter += 1;
       denialCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "aloneAtFavouritePlace") {
     if (
@@ -587,6 +592,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "sunrise";
       sunriseVideo.play();
       buttonClickSound.play();
+      decisionCounter += 1;
     }
     if (aloneAtFavouritePlace.LeftButton.hitTestCustom()) {
       acceptanceCounter += 1;
@@ -603,6 +609,7 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "sunrise";
       sunriseVideo.play();
       buttonClickSound.play();
+      decisionCounter += 1;
     }
     if (togetherAtFavouritePlace.LeftButton.hitTestCustom()) {
       angerCounter += 1;
@@ -618,10 +625,12 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       denialCounter += 1;
+      decisionCounter += 1;
     } else if (sunrise.RightButton.hitTestCustom()) {
       gameScreenState = "kitchen";
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "kitchen") {
     if (kitchen.LeftButton.hitTestCustom()) {
@@ -630,10 +639,13 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       depressionCounter += 1;
+      decisionCounter += 1;
     } else if (kitchen.RightButton.hitTestCustom()) {
       gameScreenState = "friendIsCalling";
       friendIsCallingVideo.loop();
       buttonClickSound.play();
+      acceptanceCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "aloneInBed") {
     if (aloneInBed.LeftButton.hitTestCustom()) {
@@ -642,12 +654,14 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       bargainingCounter += 1;
+      decisionCounter += 1;
     } else if (aloneInBed.RightButton.hitTestCustom()) {
       gameScreenState = "fairygram";
       handyVideo.loop();
       buttonClickSound.play();
       acceptanceCounter += 1;
       angerCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "fairygram") {
     if (fairygram.LeftButton.hitTestCustom()) {
@@ -656,22 +670,26 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       acceptanceCounter += 1;
       angerCounter += 1;
+      decisionCounter += 1;
     } else if (fairygram.RightButton.hitTestCustom()) {
       gameScreenState = "sad";
       sadVideo.loop();
       buttonClickSound.play();
       bargainingCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "sad") {
     if (sad.LeftButton.hitTestCustom()) {
       gameScreenState = "cleanUp";
       buttonClickSound.play();
       denialCounter += 1;
+      decisionCounter += 1;
       // end aswertung
     } else if (sad.RightButton.hitTestCustom()) {
       gameScreenState = "emptiness";
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
       // end Auswetung
     }
   } else if (gameScreenState === "friendIsCalling") {
@@ -679,34 +697,40 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "aboutEx";
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     } else if (friendIsCalling.RightButton.hitTestCustom()) {
       gameScreenState = "lightParty";
       lightPartyVideo.loop();
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "aboutEx") {
     if (aboutEx.LeftButton.hitTestCustom()) {
       gameScreenState = "talkAboutEx";
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     } else if (aboutEx.RightButton.hitTestCustom()) {
       gameScreenState = "selectMovie";
       movieNightVideo.loop();
       buttonClickSound.play();
       denialCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "talkAboutEx") {
     if (talkAboutEx.LeftButton.hitTestCustom()) {
       gameScreenState = "painfulFeelings";
       buttonClickSound.play();
       depressionCounter += 1;
+      decisionCounter += 1;
       // end
     } else if (talkAboutEx.RightButton.hitTestCustom()) {
       gameScreenState = "badSideGoodEffect";
       buttonClickSound.play();
       acceptanceCounter += 1;
       angerCounter += 1;
+      decisionCounter += 1;
       // end
     }
   } else if (gameScreenState === "selectMovie") {
@@ -714,11 +738,13 @@ export function mouseClickedForGameScreen() {
       gameScreenState = "badNewChance";
       buttonClickSound.play();
       depressionCounter += 1;
+      decisionCounter += 1;
       // auswertung
     } else if (selectMovie.RightButton.hitTestCustom()) {
       gameScreenState = "goodNewChance";
       buttonClickSound.play();
       angerCounter += 1;
+      decisionCounter += 1;
       // auswertung
     }
   } else if (gameScreenState === "lightParty") {
@@ -727,24 +753,28 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       depressionCounter += 1;
+      decisionCounter += 1;
       // end Auswertung
     } else if (lightParty.RightButton.hitTestCustom()) {
       gameScreenState = "attractive";
       talkAtLightPartyVideo.loop();
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "attractive") {
     if (attractive.LeftButton.hitTestCustom()) {
       gameScreenState = "missOldTime";
       buttonClickSound.play();
       denialCounter += 1;
+      decisionCounter += 1;
       // Auswertung
     } else if (attractive.RightButton.hitTestCustom()) {
       gameScreenState = "danceAndNumber";
       dancePartyVideo.loop();
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
     }
   } else if (gameScreenState === "danceAndNumber") {
     if (danceAndNumber.LeftButton.hitTestCustom()) {
@@ -753,10 +783,12 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       bargainingCounter += 1;
+      decisionCounter += 1;
     } else if (danceAndNumber.RightButton.hitTestCustom()) {
       gameScreenState = "evenningHope";
       buttonClickSound.play();
       acceptanceCounter += 1;
+      decisionCounter += 1;
       // Auswertung
     }
   } else if (
@@ -775,11 +807,10 @@ export function mouseClickedForGameScreen() {
       negativeEndingVideo.loop();
       buttonClickSound.play();
 
+      console.log(denialCounter);
       return true;
     }
   }
-  // startet woanderst nicht gleichzeitig mit Text
-  // argumentVideo.loop();
 }
 
 export function resetCounters() {
@@ -789,4 +820,24 @@ export function resetCounters() {
   bargainingCounter = 0;
   depressionCounter = 0;
   acceptanceCounter = 0;
+  decisionCounter = 0;
+}
+
+export function getCounters() {
+  // console.log([
+  //   denialCounter,
+  //   angerCounter,
+  //   bargainingCounter,
+  //   depressionCounter,
+  //   acceptanceCounter,
+  //   decisionCounter,
+  // ]);
+  return [
+    denialCounter,
+    angerCounter,
+    bargainingCounter,
+    depressionCounter,
+    acceptanceCounter,
+    decisionCounter,
+  ];
 }
