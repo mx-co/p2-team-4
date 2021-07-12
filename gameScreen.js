@@ -44,7 +44,7 @@ let answerButtonPosXRight = 780;
 
 let argument = {
   textbox: new Textbox(
-    "Du und dein Lieblings-Tüdelü streitet euch. \nEs entscheidet sich daraufhin, weil es unzufrieden mit der Beziehung ist, \nmit dir schluss zu machen. \nWie reagierst du?"
+    "Du und dein Lieblingstüdeldü streitet euch. Es ist schon \nlänger unzufrieden mit eurer Beziehung und entscheidet sich daraufhin, \nmit dir schluss zu machen. Wie reagierst du?"
   ),
 
   LeftButton: new AnswerButton(
@@ -54,7 +54,7 @@ let argument = {
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich ergreife so schnell wie möglich die Flucht.",
+    "Ich gehe dem Gespräch aus dem Weg.",
     true
   ),
 };
@@ -73,17 +73,17 @@ function argumentScreen() {
 
 let aloneInBoat = {
   textbox: new Textbox(
-    "Du sitzt nun alleine und traurig aufgrund der Trennung im Bötchen \nund überlegst, was du tun sollst."
+    "Nachdem dein Ex-Lieblingstüdeldü dich alleine auf dem Boot \nzurückgelassen hat überlegst du, was du tun sollst."
   ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Besten Freund kontaktieren.",
+    "Ich bitte meinen besten Freund, \nmich an meinem Lieblingsort zu treffen.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Alleine zum Lieblingsort fahren.",
+    "Ich fahre alleine \nzu meinem Lieblingsort.",
     true
   ),
 };
@@ -99,7 +99,7 @@ function aloneInBoatScreen() {
 
 let aloneAtFavouritePlace = {
   textbox: new Textbox(
-    "An deinem Lieblingsort angekommen, \nwirst du dir deiner Einsamkeit bewusst. Wie reagierst du darauf?"
+    "An deinem Lieblingsort angekommen, \nmerkst du zum ersten Mal wie einsam du dich fühlst. \nWas könnte dir jetzt weiterhelfen?"
   ),
 
   LeftButton: new AnswerButton(
@@ -109,7 +109,7 @@ let aloneAtFavouritePlace = {
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich sage mir, dass es nur ein kleiner Streit war \nund das wir uns wieder vertragen können.",
+    "Ich sage mir, dass es nur ein kleiner Streit war \nund dass wir uns wieder vertragen können.",
     true
   ),
 };
@@ -124,7 +124,7 @@ function aloneAtFavouritePlaceScreen() {
 
 let togetherAtFavouritePlace = {
   textbox: new Textbox(
-    "Du triffst dich mit deinem besten Freund an deinem Lieblingsort. \nWorüber möchtest du reden?"
+    "Als du an deinem Lieblingsort ankommst, wartet dein Freund bereits auf dich. \nEr fragt dich was los ist. Was antwortest du darauf?"
   ),
 
   LeftButton: new AnswerButton(
@@ -149,7 +149,7 @@ function togetherAtFavouritePlaceScreen() {
 
 let sunrise = {
   textbox: new Textbox(
-    "Die Sonne geht auf, ein neuer Tag bricht an. Wie möchtest du in den Tag starte?"
+    "Zurück daheim bist du vor Erschöpfung direkt eingeschlafen. \nAm nächsten Morgen erwachst du zum ersten Mal ohne dein Lieblingstüdeldü. \nWie möchtest du in den Tag starten?"
   ),
 
   LeftButton: new AnswerButton(
@@ -173,18 +173,16 @@ function sunriseScreen() {
 }
 
 let kitchen = {
-  textbox: new Textbox("Das Frühstück war sehr lecker. Als nächste..."),
+  textbox: new Textbox(
+    "Du schmaust gerade dein Lieblingsfrühstück als dein Läutling klingelt. Gehst du ran?"
+  ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "... gehe ich zurück ins Bett.",
+    "Ich lehne ab und gehe zurück ins Blättchen.",
     true
   ),
-  RightButton: new AnswerButton(
-    answerButtonPosXRight,
-    "... suche ich mir eine Beschäftigung.",
-    true
-  ),
+  RightButton: new AnswerButton(answerButtonPosXRight, "Ich nehme an.", true),
 };
 function kitchenScreen() {
   push();
@@ -197,7 +195,7 @@ function kitchenScreen() {
 
 let aloneInBed = {
   textbox: new Textbox(
-    "Du rollst alleine im Bett herum und \nnimmst deinen Läutiling zur Hand. Wie entscheidest du dich?"
+    "Du rollst alleine im Blättchen herum und \nnimmst deinen Läutiling zur Hand. Was möchtest du tun?"
   ),
 
   LeftButton: new AnswerButton(
@@ -223,13 +221,17 @@ function aloneInBedScreen() {
 
 let fairygram = {
   textbox: new Textbox(
-    "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygramm."
+    "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygramm. \nWie reagierst du darauf?"
   ),
 
-  LeftButton: new AnswerButton(answerButtonPosXLeft, "Entfolgen.", true),
+  LeftButton: new AnswerButton(
+    answerButtonPosXLeft,
+    "Ich drücke auf entfolgen.",
+    true
+  ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Nicht entfolgen.",
+    "Ich schließe Fairygram.",
     true
   ),
 };
@@ -245,17 +247,17 @@ function fairygramScreen() {
 
 let sad = {
   textbox: new Textbox(
-    "Du fühlst dich traurig und einsam. Was möchtest du jetzt tun?"
+    "Du legst dein Läuteling zur Seite. \nTrauer und Einsamkeit überkommt dich. \nWie gehst du damit um?"
   ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Im Bett liegen bleiben und weiterhin mit Social Media ablenken.",
+    "Ich nehme das Läuteling wieder zur Hand \nund lenke mich mit anderen Sozialen Medien ab.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Aufstehen und Zimmer aufräumen.",
+    "Ich stehe auf \nund räume mein Zimmer auf.",
     true
   ),
 };
@@ -270,17 +272,17 @@ function sadScreen() {
 
 let friendIsCalling = {
   textbox: new Textbox(
-    "Dein Läutling klingelt und dein bester Freund schlägt vor, \netwas zu unternehmen, worauf du Lust hast?"
+    "Dein bester Freund ist am Apparat und schlägt vor, etwas zu unternehmen. Worauf hast du Lust? \netwas zu unternehmen, worauf du Lust hast?"
   ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Einen entspannten Abend machen.",
+    "Ich schlage vor einen \nentspannten Filmabend zu machen.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Auf eine Party gehen.",
+    "Ich schlage vor \nauf den Lichtball zu gehen.",
     true
   ),
 };
@@ -295,7 +297,7 @@ function friendIsCallingScreen() {
 
 let aboutEx = {
   textbox: new Textbox(
-    "Du verbringst bisher einen entspannten Abend mit deinen engsten Freunden. \nEiner deiner Freunde spricht dich auf deinen Ex Partner an."
+    "Du verbringst bisher einen entspannten Abend mit deinen engsten Freunden \nals einer deiner Freunde dich auf deinen Ex-Lieblingstüdeldü anspricht. \nWas machst du ?"
   ),
 
   LeftButton: new AnswerButton(
@@ -305,7 +307,7 @@ let aboutEx = {
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich gehe dem Gespräch aus dem Weg.",
+    "Ich gehe dem Gespräch aus dem Weg und sage nur dass es ihm gut geht.",
     true
   ),
 };
@@ -319,11 +321,11 @@ function aboutExScreen() {
 }
 
 let talkAboutEx = {
-  textbox: new Textbox("Was möchtest du deinen Freunden erzählen."),
+  textbox: new Textbox("Was möchtest du deinen Freunden erzählen?"),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü sehr vermisse und \nerzähle Geschichten aus der Vergangenheit.",
+    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü vermisse.",
     true
   ),
   RightButton: new AnswerButton(
@@ -360,17 +362,17 @@ function selectMovieScreen() {
 
 let lightParty = {
   textbox: new Textbox(
-    "Du gehst mit deinen Freunden zum Lichterball. \nSie bieten dir an, etwas mit ihnen zu trinken."
+    "Nach einigen Tänzen auf dem Lichterball bieten deine Freunde \ndir an etwa smit ihnen zu trinken. Nimmst du an?"
   ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Der Alkohol wird mir helfen Spaß zu haben.",
+    "Ja.Der Alkohol wird mir helfen Spaß zu haben.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich hole mir lieber Blütensaft an der Theke.",
+    "Ich hole mir lieber einen Blütensaft an der Theke.",
     true
   ),
 };
@@ -385,7 +387,7 @@ function lightPartyScreen() {
 
 let attractive = {
   textbox: new Textbox(
-    "Als du dir einen Blütensaft hollen willst, spricht dich ein attraktives Tüdeldü an. Wie verhälst du dich?"
+    "An der Theke spricht dich ein attraktives Tüdeldü an. \nWie verhälst du dich?"
   ),
 
   LeftButton: new AnswerButton(
@@ -410,17 +412,17 @@ function attractiveScreen() {
 
 let danceAndNumber = {
   textbox: new Textbox(
-    "Ihr beiden versteht euch wirklich gut. Das Tüdeldü lädt dich zum Tanz ein und fragt anschließend nach deiner Nummer. Wie reagierst du?"
+    "Ihr beiden versteht euch wirklich gut. Das Tüdeldü \nlädt dich zum Tanz ein und fragt anschließend nach \ndeiner Nummer. Was sagst du dazu?"
   ),
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich lehne ab, weil ich an mein Ex-Lieblings-Tüdeldü denken muss.",
+    "Ich lehne ab, weil ich an \nmeinen Ex-Lieblingstüdeldü denken muss.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich nehme an. Mal sehen, wohin es uns führt.",
+    "Ich gehe darauf ein. \nMal sehen wohin es uns führt.",
     true
   ),
 };
