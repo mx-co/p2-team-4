@@ -7,6 +7,8 @@ import {
   backgroundMusic,
   buttonClickSound,
   argumentVideo,
+  positiveEndingVideo,
+  negativeEndingVideo,
 } from "./preload.js";
 import Button from "./classes/button.js";
 
@@ -60,15 +62,17 @@ export function mouseClickedForStartScreen() {
     titleButton.gsapAnimationToLeft(200);
     clickIsActive = false;
 
-    // starts and loops guidsScreen background video
+    // starts and loops guideScreen background video
     guideScreenVideo.loop();
 
-    // latenz Reduzierung
+    // reduce latency
     argumentVideo.play().stop();
+    positiveEndingVideo.play().stop();
+    negativeEndingVideo.play().stop();
 
     buttonClickSound.play();
 
-    // wird nur einmal abgespielt und geht in einen loop, beim Neuspielen ist Musik nicht abgehakt
+    // only plays once
     if (backgroundMusicIsActive) {
       backgroundMusic.loop();
       backgroundMusicIsActive = false;
