@@ -7,23 +7,28 @@ export default class ButtonHitTest {
   }
 
   hitTestRec() {
-    if (
-      mouseX >= this.buttonX - this.buttonWidth / 2 &&
-      mouseX <= this.buttonX + this.buttonWidth / 2 &&
-      mouseY >= this.buttonY - this.buttonHeight / 2 &&
-      mouseY <= this.buttonY + this.buttonHeight / 2
-    ) {
-      // console.log("hitRectangle");
-      return true;
+    // avoid clicking outside the canvas
+    if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
+      if (
+        mouseX >= this.buttonX - this.buttonWidth / 2 &&
+        mouseX <= this.buttonX + this.buttonWidth / 2 &&
+        mouseY >= this.buttonY - this.buttonHeight / 2 &&
+        mouseY <= this.buttonY + this.buttonHeight / 2
+      ) {
+        // console.log("hitRectangle");
+        return true;
+      }
     }
   }
 
   hitTestCircle() {
-    let d = dist(mouseX, mouseY, this.buttonX, this.buttonY);
+    if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
+      let d = dist(mouseX, mouseY, this.buttonX, this.buttonY);
 
-    if (d <= this.buttonWidth / 2) {
-      // console.log("hitCircle");
-      return true;
+      if (d <= this.buttonWidth / 2) {
+        // console.log("hitCircle");
+        return true;
+      }
     }
   }
 
@@ -40,17 +45,18 @@ export default class ButtonHitTest {
       this.buttonX + this.buttonWidth / 2,
       this.buttonY
     );
-
-    if (
-      (mouseX >= this.buttonX - this.buttonWidth / 2 &&
-        mouseX <= this.buttonX + this.buttonWidth / 2 &&
-        mouseY >= this.buttonY - this.buttonHeight / 2 &&
-        mouseY <= this.buttonY + this.buttonHeight / 2) ||
-      dLeft <= this.buttonHeight / 2 ||
-      dRight <= this.buttonHeight / 2
-    ) {
-      // console.log("hitCostum");
-      return true;
+    if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
+      if (
+        (mouseX >= this.buttonX - this.buttonWidth / 2 &&
+          mouseX <= this.buttonX + this.buttonWidth / 2 &&
+          mouseY >= this.buttonY - this.buttonHeight / 2 &&
+          mouseY <= this.buttonY + this.buttonHeight / 2) ||
+        dLeft <= this.buttonHeight / 2 ||
+        dRight <= this.buttonHeight / 2
+      ) {
+        // console.log("hitCostum");
+        return true;
+      }
     }
   }
 }

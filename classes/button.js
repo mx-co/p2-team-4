@@ -12,7 +12,6 @@ export default class Button extends ButtonHitTest {
     textOffsetY,
     textSize
   ) {
-
     super(buttonX, buttonY, buttonWidth, buttonHeight);
     this.buttonText = buttonText;
     this.buttonScale = 1;
