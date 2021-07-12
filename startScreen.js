@@ -6,6 +6,7 @@ import {
   guideScreenVideo,
   backgroundMusic,
   buttonClickSound,
+  argumentVideo,
 } from "./preload.js";
 import Button from "./classes/button.js";
 
@@ -61,6 +62,9 @@ export function mouseClickedForStartScreen() {
 
     // starts and loops guidsScreen background video
     guideScreenVideo.loop();
+
+    // latenz Reduzierung
+    argumentVideo.play().stop();
 
     buttonClickSound.play();
 
