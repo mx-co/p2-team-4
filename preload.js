@@ -1,7 +1,3 @@
-// test Variable
-export let imgTestBild;
-export let testSound;
-
 // Font Variable
 export let averiaSansLibreBold;
 export let averiaSansLibreBoldItalic;
@@ -12,9 +8,10 @@ export let averiaSansLibreRegular;
 
 export let backgroundMusic;
 export let buttonClickSound;
+export let greenCircle;
+export let blueCircle;
 
 // startScreen
-export let greenCircle;
 export let startBGImg;
 
 // guideScreen
@@ -69,12 +66,7 @@ function loadAveriaFonts() {
   );
 }
 
-function preloadForTestScreen() {
-  testSound = loadSound("./assets/sounds/soundscrate-midnight-walk-sc1.mp3");
-  imgTestBild = loadImage("./assets/img/testBild.png");
-}
 function preloadForStartScreen() {
-  greenCircle = loadImage("./assets/img/greenCircle.png");
   startBGImg = loadImage(
     "./assets/img/backgroundScreens/startScreenHintergrund.png"
   );
@@ -157,7 +149,9 @@ export function preload() {
   );
   buttonClickSound.setVolume(0.4);
 
-  preloadForTestScreen();
+  greenCircle = loadImage("./assets/img/greenCircle2.png");
+  blueCircle = loadImage("./assets/img/blueCircle.png");
+
   preloadForStartScreen();
   preloadForGuideScreen();
   preloadForGameScreen();
