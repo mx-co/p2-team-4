@@ -10,18 +10,8 @@ import {
 import Button from "./classes/button.js";
 import Credit from "./classes/credit.js";
 
-let startGuideButton = new Button(
-  1010,
-  500,
-  250,
-  250,
-  "Start",
-  true,
-  8,
-  -8,
-  50
-);
-let creditButton = new Button(75, 600, 100, 100, "Credits", true, 5, 0, 15);
+let startGuideButton = new Button(1010, 500, 250, 250, "Start", true, 0, 0, 50);
+let creditButton = new Button(75, 600, 100, 100, "Credits", true, 0, 0, 15);
 
 let credit = new Credit(600, 675 / 2);
 
@@ -46,7 +36,6 @@ export function guideScreen() {
   text(
     "Du begibst dich nun auf eine Reise, in der du dich \nin das Leben eines Tüdeldüs hineinversetzt, \ndas gerade eine Trennung hinter sich hat. \nGenau wie du, durchlebt es nun eine schwierige \nund anstrengende Zeit, vollgepackt mit lauter \nverschiedener Emotionen. \nIn dieser Simulation geht es um deine auf \ndiesen Gefühlen basierenden Entscheidungen. \nAlso entscheide zunächst \naus dem Bauch heraus.",
 
-    // "Du begibst dich nun auf eine Reise, in der du dich in \ndas Leben eines Tüdeldüs hineinversetzt, das gerade \neine Trennung hinter sich hat. Genau wie du, durchlebt es \nnun eine schwierige und anstrengende Zeit, vollgepackt mit \nlauter verschiedener Emotionen. \nIn dieser Simulation geht es um deine auf diesen Gefühlen \nbasierenden Entscheidungen. Also entscheide \nzunächst aus dem Bauch heraus.",
     650,
     300
   );
