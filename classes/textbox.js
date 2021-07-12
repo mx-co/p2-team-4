@@ -20,7 +20,7 @@ export default class Textbox {
       5
     );
 
-    fill(0, 0, 0);
+    fill(51, 47, 45);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
     textSize(15);

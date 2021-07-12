@@ -59,6 +59,7 @@ export function endScreen() {
 
   textFont(averiaSansLibreRegular);
   textSize(20);
+  fill(51, 47, 45);
   // text gfehlt
   if (getCounters()[4] >= getCounters()[5] / 2) {
     image(positiveEndingVideo, 0, 0, 1200, 675);
