@@ -12,6 +12,8 @@ canvas {
   width: auto !important;
   height: 70% !important;
   /* !important overrides all rules used before */
+
+  border-radius: 15px;
 }
 
 #simulation {
