@@ -19,15 +19,8 @@ let acceptance;
 
 let colorModus;
 let setColorCircle;
+let fillingIsActive = true;
 let init = true;
-
-function setParameters() {
-  denial = new Parameter(30, 15, getCounters()[0], 5, "Verweigerung");
-  anger = new Parameter(30, 60, getCounters()[1], 3, "Zorn");
-  bargaining = new Parameter(30, 105, getCounters()[2], 5, "Verhandeln");
-  depression = new Parameter(30, 150, getCounters()[3], 4, "Depression");
-  acceptance = new Parameter(30, 195, getCounters()[4], 11, "Annahme");
-}
 
 let againButton = new Button(
   1120,
@@ -41,12 +34,32 @@ let againButton = new Button(
   35
 );
 
+function setParameters() {
+  denial = new Parameter(30, 15, getCounters()[0], 5, "Verweigerung");
+  anger = new Parameter(30, 60, getCounters()[1], 3, "Zorn");
+  bargaining = new Parameter(30, 105, getCounters()[2], 5, "Verhandeln");
+  depression = new Parameter(30, 150, getCounters()[3], 4, "Depression");
+  acceptance = new Parameter(30, 195, getCounters()[4], 11, "Annahme");
+}
+
 function fiveParameter() {
   denial.display(averiaSansLibreRegular, colorModus);
   anger.display(averiaSansLibreRegular, colorModus);
   bargaining.display(averiaSansLibreRegular, colorModus);
   depression.display(averiaSansLibreRegular, colorModus);
   acceptance.display(averiaSansLibreRegular, colorModus);
+}
+
+// run animation once, while fillingIsActive ===true
+function filling() {
+  if (fillingIsActive) {
+    denial.parameterAnimation();
+    anger.parameterAnimation();
+    bargaining.parameterAnimation();
+    depression.parameterAnimation();
+    acceptance.parameterAnimation();
+    fillingIsActive = false;
+  }
 }
 
 export function endScreen() {
@@ -60,7 +73,6 @@ export function endScreen() {
   textFont(averiaSansLibreRegular);
   textSize(20);
 
-  // text gfehlt
   if (getCounters()[4] >= getCounters()[5] / 2) {
     image(positiveEndingVideo, 0, 0, 1200, 675);
     colorModus = "bright";
@@ -89,22 +101,9 @@ export function endScreen() {
   filling();
 }
 
-let fillingIsActive = true;
-function filling() {
-  if (fillingIsActive) {
-    denial.parameterAnimation();
-    anger.parameterAnimation();
-    bargaining.parameterAnimation();
-    depression.parameterAnimation();
-    acceptance.parameterAnimation();
-    fillingIsActive = false;
-  }
-}
-
 export function mouseClickedForEndScreen() {
-  // fürs Testen
-  positiveEndingVideo.loop();
-  negativeEndingVideo.loop();
+  // positiveEndingVideo.loop();
+  // negativeEndingVideo.loop();
 
   if (againButton.hitTestCircle()) {
     denial.parameterAnimationReset();

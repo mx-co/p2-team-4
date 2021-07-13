@@ -43,6 +43,19 @@ let gameScreenState = "argument";
 let answerButtonPosXLeft = 420;
 let answerButtonPosXRight = 780;
 
+let evaluationButton = new Button(
+  1120,
+  570,
+  300,
+  300,
+  "Weiter",
+  true,
+  -20,
+  -20,
+  50
+);
+
+// shows all decisions
 let argument = {
   textbox: new Textbox(
     "Du und dein Lieblingstüdeldü streitet euch. Es ist schon \nlänger unzufrieden mit eurer Beziehung und entscheidet sich daraufhin, \nmit dir schluss zu machen. Wie reagierst du?"
@@ -437,18 +450,6 @@ function danceAndNumberScreen() {
 }
 
 // Text for positive and negative preEndScreen
-let evaluationButton = new Button(
-  1120,
-  570,
-  300,
-  300,
-  "Weiter",
-  true,
-  -20,
-  -20,
-  50
-);
-
 let positives = {
   cleanUp: new ThinkingText(
     "Ich fühle mich wohl in meinem Zimmer. \nAußerdem hatte ich beim Aufräumen Zeit zum Nachdenken."
@@ -463,7 +464,6 @@ let positives = {
     "Ich genieße die Zeit mit meinen Freunden und \nfühle mich nicht mehr so alleine."
   ),
 };
-
 let negatives = {
   emptiness: new ThinkingText(
     "Sobald ich mein Läutling weglege, \nspüre ich die Leere in mir. \nMein Verhalten hat mir gar nicht geholfen."
@@ -499,7 +499,6 @@ function positivePreEndScreen() {
 
   pop();
 }
-
 function negativePreEndScreen() {
   push();
   image(negativeThinkingImg, 0, 0, 1200, 675);
@@ -705,13 +704,13 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       decisionCounter += 1;
-      // end aswertung
+      // end of decisions
     } else if (sad.RightButton.hitTestCustom()) {
       gameScreenState = "emptiness";
       buttonClickSound.play();
       acceptanceCounter += 1;
       decisionCounter += 1;
-      // end Auswetung
+      // end of decisions
     }
   } else if (gameScreenState === "friendIsCalling") {
     if (friendIsCalling.LeftButton.hitTestCustom()) {
@@ -745,14 +744,14 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       decisionCounter += 1;
-      // end
+      // end of decisions
     } else if (talkAboutEx.RightButton.hitTestCustom()) {
       gameScreenState = "badSideGoodEffect";
       buttonClickSound.play();
       acceptanceCounter += 1;
       angerCounter += 1;
       decisionCounter += 1;
-      // end
+      // end of decisions
     }
   } else if (gameScreenState === "selectMovie") {
     if (selectMovie.LeftButton.hitTestCustom()) {
@@ -760,13 +759,13 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       decisionCounter += 1;
-      // auswertung
+      // end of decisions
     } else if (selectMovie.RightButton.hitTestCustom()) {
       gameScreenState = "goodNewChance";
       buttonClickSound.play();
       angerCounter += 1;
       decisionCounter += 1;
-      // auswertung
+      // end of decisions
     }
   } else if (gameScreenState === "lightParty") {
     if (lightParty.LeftButton.hitTestCustom()) {
@@ -775,7 +774,7 @@ export function mouseClickedForGameScreen() {
       denialCounter += 1;
       depressionCounter += 1;
       decisionCounter += 1;
-      // end Auswertung
+      // end of decisions
     } else if (lightParty.RightButton.hitTestCustom()) {
       gameScreenState = "attractive";
       talkAtLightPartyVideo.loop();
@@ -789,7 +788,7 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       decisionCounter += 1;
-      // Auswertung
+      // end of decisions
     } else if (attractive.RightButton.hitTestCustom()) {
       gameScreenState = "danceAndNumber";
       dancePartyVideo.loop();
@@ -810,7 +809,7 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       acceptanceCounter += 1;
       decisionCounter += 1;
-      // Auswertung
+      // end of decisions
     }
   } else if (
     gameScreenState == "cleanUp" ||

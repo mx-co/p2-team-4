@@ -12,7 +12,6 @@ import Credit from "./classes/credit.js";
 
 let startGuideButton = new Button(1010, 500, 250, 250, "Start", true, 0, 0, 50);
 let creditButton = new Button(75, 600, 100, 100, "Credits", true, 0, 0, 15);
-
 let credit = new Credit(600, 675 / 2);
 
 let creditIsActive = false;
@@ -44,6 +43,7 @@ export function guideScreen() {
     image(startBGImg, 0, 0, 1200, 675);
     credit.display(averiaSansLibreBold, averiaSansLibreRegular);
   }
+
   creditButton.display(averiaSansLibreBold, greenCircle, 0.15);
 
   pop();
