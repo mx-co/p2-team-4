@@ -23,6 +23,8 @@ export let sunriseVideo;
 export let aloneInBedVideo;
 export let movieNightVideo;
 
+export let brushImg;
+
 export let friendIsCallingVideo;
 export let handyVideo;
 export let sadVideo;
@@ -99,6 +101,7 @@ function preloadForGameScreen() {
   kitchenImg = loadImage("./assets/img/kitchen.PNG");
   positiveThinkingImg = loadImage("./assets/img/positiveThinking.png");
   negativeThinkingImg = loadImage("./assets/img/negativeThinking.png");
+  brushImg = loadImage("./assets/img/brush.png");
 }
 
 function preloadForEndScreen() {
