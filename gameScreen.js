@@ -23,7 +23,6 @@ import {
   dancePartyVideo,
   positiveThinkingImg,
   negativeThinkingImg,
-  greenCircle,
   positiveEndingVideo,
   negativeEndingVideo,
   buttonClickSound,
