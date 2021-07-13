@@ -7,18 +7,23 @@ export default class Textbox {
     this.signText = signText;
   }
 
-  display(fontStyle) {
+  display(fontStyle, img) {
     push();
     translate(this.signX, this.signY);
     fill(243, 233, 214);
     noStroke();
-    rect(
-      -this.signWidth / 2,
-      -this.signHeight / 2,
-      this.signWidth,
-      this.signHeight,
-      5
-    );
+    // rect(
+    //   -this.signWidth / 2,
+    //   -this.signHeight / 2,
+    //   this.signWidth,
+    //   this.signHeight,
+    //   5
+    // );
+
+    push();
+    imageMode(CENTER);
+    image(img, 0, 0, this.signWidth + 20, this.signHeight + 20);
+    pop();
 
     fill(51, 47, 45);
     textAlign(CENTER, CENTER);

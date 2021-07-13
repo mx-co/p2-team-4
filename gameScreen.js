@@ -27,6 +27,7 @@ import {
   negativeEndingVideo,
   buttonClickSound,
   blueCircle,
+  brushImg,
 } from "./preload.js";
 
 let denialCounter = 0;
@@ -77,7 +78,7 @@ function argumentScreen() {
 
   image(argumentVideo, 0, 0, 1200, 675);
 
-  argument.textbox.display(averiaSansLibreBold);
+  argument.textbox.display(averiaSansLibreBold, brushImg);
   argument.LeftButton.display(averiaSansLibreRegular);
   argument.RightButton.display(averiaSansLibreRegular);
 
@@ -104,7 +105,7 @@ function aloneInBoatScreen() {
   push();
   image(aloneInBoatVideo, 0, 0, 1200, 675);
 
-  aloneInBoat.textbox.display(averiaSansLibreBold);
+  aloneInBoat.textbox.display(averiaSansLibreBold, brushImg);
   aloneInBoat.LeftButton.display(averiaSansLibreRegular);
   aloneInBoat.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -129,7 +130,7 @@ let aloneAtFavouritePlace = {
 function aloneAtFavouritePlaceScreen() {
   push();
   image(aloneAtFavouritePlaceVideo, 0, 0, 1200, 675);
-  aloneAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  aloneAtFavouritePlace.textbox.display(averiaSansLibreBold, brushImg);
   aloneAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   aloneAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -154,7 +155,7 @@ let togetherAtFavouritePlace = {
 function togetherAtFavouritePlaceScreen() {
   push();
   image(togetherAtFavouritePlaceVideo, 0, 0, 1200, 675);
-  togetherAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  togetherAtFavouritePlace.textbox.display(averiaSansLibreBold, brushImg);
   togetherAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   togetherAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -179,7 +180,7 @@ let sunrise = {
 function sunriseScreen() {
   push();
   image(sunriseVideo, 0, 0, 1200, 675);
-  sunrise.textbox.display(averiaSansLibreBold);
+  sunrise.textbox.display(averiaSansLibreBold, brushImg);
   sunrise.LeftButton.display(averiaSansLibreRegular);
   sunrise.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -200,7 +201,7 @@ let kitchen = {
 function kitchenScreen() {
   push();
   image(kitchenImg, 0, 0, 1200, 675);
-  kitchen.textbox.display(averiaSansLibreBold);
+  kitchen.textbox.display(averiaSansLibreBold, brushImg);
   kitchen.LeftButton.display(averiaSansLibreRegular);
   kitchen.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -225,7 +226,7 @@ let aloneInBed = {
 function aloneInBedScreen() {
   push();
   image(aloneInBedVideo, 0, 0, 1200, 675);
-  aloneInBed.textbox.display(averiaSansLibreBold);
+  aloneInBed.textbox.display(averiaSansLibreBold, brushImg);
   aloneInBed.LeftButton.display(averiaSansLibreRegular);
   aloneInBed.RightButton.display(averiaSansLibreRegular);
 
@@ -251,7 +252,7 @@ let fairygram = {
 function fairygramScreen() {
   push();
   image(handyVideo, 0, 0, 1200, 675);
-  fairygram.textbox.display(averiaSansLibreBold);
+  fairygram.textbox.display(averiaSansLibreBold, brushImg);
   fairygram.LeftButton.display(averiaSansLibreRegular);
   fairygram.RightButton.display(averiaSansLibreRegular);
 
@@ -277,7 +278,7 @@ let sad = {
 function sadScreen() {
   push();
   image(sadVideo, 0, 0, 1200, 675);
-  sad.textbox.display(averiaSansLibreBold);
+  sad.textbox.display(averiaSansLibreBold, brushImg);
   sad.LeftButton.display(averiaSansLibreRegular);
   sad.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -302,7 +303,7 @@ let friendIsCalling = {
 function friendIsCallingScreen() {
   push();
   image(friendIsCallingVideo, 0, 0, 1200, 675);
-  friendIsCalling.textbox.display(averiaSansLibreBold);
+  friendIsCalling.textbox.display(averiaSansLibreBold, brushImg);
   friendIsCalling.LeftButton.display(averiaSansLibreRegular);
   friendIsCalling.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -327,7 +328,7 @@ let aboutEx = {
 function aboutExScreen() {
   push();
   image(aboutExImg, 0, 0, 1200, 675);
-  aboutEx.textbox.display(averiaSansLibreBold);
+  aboutEx.textbox.display(averiaSansLibreBold, brushImg);
   aboutEx.LeftButton.display(averiaSansLibreRegular);
   aboutEx.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -350,7 +351,7 @@ let talkAboutEx = {
 function talkAboutExScreen() {
   push();
   image(talkAboutExImg, 0, 0, 1200, 675);
-  talkAboutEx.textbox.display(averiaSansLibreBold);
+  talkAboutEx.textbox.display(averiaSansLibreBold, brushImg);
   talkAboutEx.LeftButton.display(averiaSansLibreRegular);
   talkAboutEx.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -367,7 +368,7 @@ let selectMovie = {
 function selectMovieScreen() {
   push();
   image(movieNightVideo, 0, 0, 1200, 675);
-  selectMovie.textbox.display(averiaSansLibreBold);
+  selectMovie.textbox.display(averiaSansLibreBold, brushImg);
   selectMovie.LeftButton.display(averiaSansLibreRegular);
   selectMovie.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -392,7 +393,7 @@ let lightParty = {
 function lightPartyScreen() {
   push();
   image(lightPartyVideo, 0, 0, 1200, 675);
-  lightParty.textbox.display(averiaSansLibreBold);
+  lightParty.textbox.display(averiaSansLibreBold, brushImg);
   lightParty.LeftButton.display(averiaSansLibreRegular);
   lightParty.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -417,7 +418,7 @@ let attractive = {
 function attractiveScreen() {
   push();
   image(talkAtLightPartyVideo, 0, 0, 1200, 675);
-  attractive.textbox.display(averiaSansLibreBold);
+  attractive.textbox.display(averiaSansLibreBold, brushImg);
   attractive.LeftButton.display(averiaSansLibreRegular);
   attractive.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -442,7 +443,7 @@ let danceAndNumber = {
 function danceAndNumberScreen() {
   push();
   image(dancePartyVideo, 0, 0, 1200, 675);
-  danceAndNumber.textbox.display(averiaSansLibreBold);
+  danceAndNumber.textbox.display(averiaSansLibreBold, brushImg);
   danceAndNumber.LeftButton.display(averiaSansLibreRegular);
   danceAndNumber.RightButton.display(averiaSansLibreRegular);
   pop();
