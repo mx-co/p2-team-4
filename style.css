@@ -3,7 +3,7 @@ body {
   margin: 0;
 
   /* disable scrollbar */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 canvas {
@@ -11,11 +11,11 @@ canvas {
   /* display: block;   */
   width: auto !important;
   height: 70% !important;
-  /* !important überschreibt alle vorherigen Regeln */
+  /* !important overrides all rules used before */
 }
 
 #simulation {
-  /* erweitert oder verkleinert Element je nach Platz */
+  /* resize element */
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -24,8 +24,7 @@ canvas {
 }
 
 #p5_loading {
-  /* background: rgba(128, 255, 0, 0.425); */
-  background: url("./assets/img/backgroundScreens/logoOhneText.PNG");
+  background: url("./assets/img/loadingBackground.PNG");
   background-size: cover;
   position: absolute;
 
