@@ -22,6 +22,7 @@ export default class ButtonHitTest {
   }
 
   hitTestCircle() {
+    // to avoid clicking outside the canvas
     if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
       let d = dist(mouseX, mouseY, this.buttonX, this.buttonY);
 
@@ -45,6 +46,7 @@ export default class ButtonHitTest {
       this.buttonX + this.buttonWidth / 2,
       this.buttonY
     );
+    // to avoid clicking outside the canvas
     if (mouseX >= 0 && mouseX <= 1200 && mouseY >= 0 && mouseY <= 675) {
       if (
         (mouseX >= this.buttonX - this.buttonWidth / 2 &&

@@ -35,12 +35,14 @@ export default class Button extends ButtonHitTest {
     image(myImg, -15, 5);
     pop();
 
+    // text
     fill(243, 233, 214);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
     textSize(this.textSize);
     text(this.buttonText, this.textOffsetX, this.textOffsetY);
 
+    // activate hover animation
     if (this.hoverAnimationIsActive && this.hitTestCircle()) {
       this.buttonScale = 1.02;
     } else {
@@ -62,6 +64,7 @@ export default class Button extends ButtonHitTest {
     pop();
   }
 
+  // buttonXstart returns element to given position
   gsapAnimationToRight(buttonXstart) {
     gsap.to(this, {
       duration: 1,

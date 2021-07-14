@@ -65,6 +65,7 @@ function filling() {
 export function endScreen() {
   push();
 
+  // initieted parameters
   if (init) {
     setParameters();
     init = false;
@@ -73,6 +74,7 @@ export function endScreen() {
   textFont(averiaSansLibreRegular);
   textSize(20);
 
+  // acceptance parameter should be higher  than amount of clicks to get the brightScreen
   if (getCounters()[4] >= getCounters()[5] / 2) {
     image(positiveEndingVideo, 0, 0, 1200, 675);
     colorModus = "bright";
@@ -106,6 +108,7 @@ export function mouseClickedForEndScreen() {
   // negativeEndingVideo.loop();
 
   if (againButton.hitTestCircle()) {
+    // activate animation
     denial.parameterAnimationReset();
     anger.parameterAnimationReset();
     bargaining.parameterAnimationReset();

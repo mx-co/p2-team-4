@@ -72,7 +72,7 @@ export function mouseClickedForStartScreen() {
 
     buttonClickSound.play();
 
-    // only plays once
+    // only plays once in entire game
     if (backgroundMusicIsActive) {
       backgroundMusic.loop();
       backgroundMusicIsActive = false;

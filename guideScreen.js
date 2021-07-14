@@ -24,6 +24,7 @@ export function guideScreen() {
 
   textFont(averiaSansLibreRegular);
 
+  // shows indroduction sentences
   fill(51, 47, 45);
   textSize(20);
   textAlign(CENTER);
@@ -39,6 +40,7 @@ export function guideScreen() {
     300
   );
 
+  // if creditButton clicked, creditScreen is displayed
   if (creditIsActive) {
     image(startBGImg, 0, 0, 1200, 675);
     credit.display(averiaSansLibreBold, averiaSansLibreRegular);
@@ -50,6 +52,7 @@ export function guideScreen() {
 }
 
 export function mouseClickedForGuideScreen() {
+  // creditButton switch
   if (creditButton.hitTestCircle() && creditIsActive === false) {
     creditIsActive = true;
     buttonClickSound.play();

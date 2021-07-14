@@ -41,6 +41,7 @@ export default class AnswerButton extends ButtonHitTest {
       50
     );
 
+    // text
     noStroke();
     fill(51, 47, 45);
     textAlign(CENTER, CENTER);

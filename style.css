@@ -11,7 +11,7 @@ canvas {
   /* display: block;   */
   width: auto !important;
   height: 70% !important;
-  /* !important overrides all rules used before */
+  /* !important overrides all used rules before */
 
   border-radius: 15px;
 }

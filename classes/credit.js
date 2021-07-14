@@ -9,6 +9,7 @@ export default class Credit {
     translate(this.creditX, this.creditY);
     background(243, 233, 214, 150);
 
+    // text
     fill(141, 180, 127);
     noStroke();
     rect(-200, -250, 400, 500, 20);
