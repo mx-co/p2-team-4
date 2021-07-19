@@ -5,10 +5,10 @@ export default class ThinkingText {
 
   display(font) {
     push();
-    textSize(30);
-
+    textSize(20);
+    fill(51, 47, 45);
     textFont(font);
-    // x y anpassen
+    textAlign(CENTER, CENTER);
     text(this.text, 600, 300);
 
     pop();

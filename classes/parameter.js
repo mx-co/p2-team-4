@@ -37,7 +37,7 @@ export default class Parameter {
 
     //shell
     strokeWeight(3);
-    // stroke(100, 135, 160);
+
     // text
     push();
     noStroke();

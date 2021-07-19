@@ -41,7 +41,7 @@ function draw() {
   if (screenState === "start") {
     startScreen();
     if (startScreen()) {
-      // wenn button auf bestimmte position ist, dann return true
+      // Button from startScreen gives return = true
       screenState = "guide";
     }
   } else if (screenState === "guide") {

@@ -26,10 +26,9 @@ export default class AnswerButton extends ButtonHitTest {
     );
 
     if (this.hoverAnimationIsActive && this.hitTestCustom()) {
-      stroke(62, 58, 53);
-    } else {
-      // noStroke();
       stroke(244, 245, 234);
+    } else {
+      noStroke();
     }
 
     strokeWeight(3);
@@ -42,8 +41,9 @@ export default class AnswerButton extends ButtonHitTest {
       50
     );
 
+    // text
     noStroke();
-    fill(0, 0, 0);
+    fill(51, 47, 45);
     textAlign(CENTER, CENTER);
     textFont(fontStyle);
     textSize(15);

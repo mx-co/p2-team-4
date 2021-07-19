@@ -19,7 +19,20 @@ let acceptance;
 
 let colorModus;
 let setColorCircle;
+let fillingIsActive = true;
 let init = true;
+
+let againButton = new Button(
+  1120,
+  570,
+  300,
+  300,
+  "Erneut \nstarten",
+  true,
+  -20,
+  -10,
+  35
+);
 
 function setParameters() {
   denial = new Parameter(30, 15, getCounters()[0], 5, "Verweigerung");
@@ -29,18 +42,6 @@ function setParameters() {
   acceptance = new Parameter(30, 195, getCounters()[4], 11, "Annahme");
 }
 
-let againButton = new Button(
-  1120,
-  570,
-  300,
-  300,
-  "Erneut spielen",
-  true,
-  -20,
-  -10,
-  20
-);
-
 function fiveParameter() {
   denial.display(averiaSansLibreRegular, colorModus);
   anger.display(averiaSansLibreRegular, colorModus);
@@ -49,36 +50,7 @@ function fiveParameter() {
   acceptance.display(averiaSansLibreRegular, colorModus);
 }
 
-export function endScreen() {
-  push();
-
-  if (init) {
-    setParameters();
-    init = false;
-  }
-
-  textFont(averiaSansLibreRegular);
-  textSize(20);
-  // text gfehlt
-  if (getCounters()[4] >= getCounters()[5] / 2) {
-    image(positiveEndingVideo, 0, 0, 1200, 675);
-    colorModus = "bright";
-    setColorCircle = greenCircle;
-    text("hurra", 300, 300);
-  } else {
-    image(negativeEndingVideo, 0, 0, 1200, 675);
-    colorModus = "dark";
-    setColorCircle = blueCircle;
-    text("on NO", 300, 300);
-  }
-
-  fiveParameter();
-  againButton.display(averiaSansLibreBold, setColorCircle, 0.45);
-  pop();
-  filling();
-}
-
-let fillingIsActive = true;
+// run animation once, while fillingIsActive ===true
 function filling() {
   if (fillingIsActive) {
     denial.parameterAnimation();
@@ -90,12 +62,53 @@ function filling() {
   }
 }
 
+export function endScreen() {
+  push();
+
+  // initieted parameters
+  if (init) {
+    setParameters();
+    init = false;
+  }
+
+  textFont(averiaSansLibreRegular);
+  textSize(20);
+
+  // acceptance parameter should be higher  than amount of clicks to get the brightScreen
+  if (getCounters()[4] >= getCounters()[5] / 2) {
+    image(positiveEndingVideo, 0, 0, 1200, 675);
+    colorModus = "bright";
+    setColorCircle = greenCircle;
+    fill(51, 47, 45);
+    text(
+      "Du hast die ersten Schritte getan und bist nun auf einem \nguten Weg, die Trennung zu verarbeiten. Auch wenn es ein \nlanger Prozess sein kann, solltest du dich auch von \nRückschlägen nicht entmutigen lassen. Wenn du die \nanderen Entscheidungen noch ausprobieren \nmöchtest, kannst du gerne einen \nzweiten Durchgang starten.",
+      30,
+      340
+    );
+  } else {
+    image(negativeEndingVideo, 0, 0, 1200, 675);
+    colorModus = "dark";
+    setColorCircle = blueCircle;
+    fill(243, 233, 214);
+    text(
+      "Viele deiner Entscheidungen hätten in der Realität leider \nnegative Auswirkungen auf deinen Bewältigungsprozess. \nAuch wenn es in dieser persönlichen Angelegenheit kein \nRichtig oder Falsch gibt, solltest du deine Wahl noch \neinmal überdenken. In einem zweiten Durchgang der \nSimulation könntest du nun überlegen, welche \nAuswirkungen deine Entscheidungen auf \ndich und dein Umfeld haben könnten.",
+      30,
+      340
+    );
+  }
+
+  fiveParameter();
+  againButton.display(averiaSansLibreBold, setColorCircle, 0.45);
+  pop();
+  filling();
+}
+
 export function mouseClickedForEndScreen() {
-  // fürs Testen
   // positiveEndingVideo.loop();
   // negativeEndingVideo.loop();
 
   if (againButton.hitTestCircle()) {
+    // activate animation
     denial.parameterAnimationReset();
     anger.parameterAnimationReset();
     bargaining.parameterAnimationReset();

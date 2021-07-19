@@ -23,10 +23,11 @@ import {
   dancePartyVideo,
   positiveThinkingImg,
   negativeThinkingImg,
-  greenCircle,
   positiveEndingVideo,
   negativeEndingVideo,
   buttonClickSound,
+  blueCircle,
+  brushImg,
 } from "./preload.js";
 
 let denialCounter = 0;
@@ -42,6 +43,19 @@ let gameScreenState = "argument";
 let answerButtonPosXLeft = 420;
 let answerButtonPosXRight = 780;
 
+let evaluationButton = new Button(
+  1120,
+  570,
+  300,
+  300,
+  "Weiter",
+  true,
+  -20,
+  -20,
+  50
+);
+
+// shows all decisions
 let argument = {
   textbox: new Textbox(
     "Du und dein Lieblingstüdeldü streitet euch. Es ist schon \nlänger unzufrieden mit eurer Beziehung und entscheidet sich daraufhin, \nmit dir schluss zu machen. Wie reagierst du?"
@@ -64,7 +78,7 @@ function argumentScreen() {
 
   image(argumentVideo, 0, 0, 1200, 675);
 
-  argument.textbox.display(averiaSansLibreBold);
+  argument.textbox.display(averiaSansLibreBold, brushImg);
   argument.LeftButton.display(averiaSansLibreRegular);
   argument.RightButton.display(averiaSansLibreRegular);
 
@@ -91,7 +105,7 @@ function aloneInBoatScreen() {
   push();
   image(aloneInBoatVideo, 0, 0, 1200, 675);
 
-  aloneInBoat.textbox.display(averiaSansLibreBold);
+  aloneInBoat.textbox.display(averiaSansLibreBold, brushImg);
   aloneInBoat.LeftButton.display(averiaSansLibreRegular);
   aloneInBoat.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -116,7 +130,7 @@ let aloneAtFavouritePlace = {
 function aloneAtFavouritePlaceScreen() {
   push();
   image(aloneAtFavouritePlaceVideo, 0, 0, 1200, 675);
-  aloneAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  aloneAtFavouritePlace.textbox.display(averiaSansLibreBold, brushImg);
   aloneAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   aloneAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -141,7 +155,7 @@ let togetherAtFavouritePlace = {
 function togetherAtFavouritePlaceScreen() {
   push();
   image(togetherAtFavouritePlaceVideo, 0, 0, 1200, 675);
-  togetherAtFavouritePlace.textbox.display(averiaSansLibreBold);
+  togetherAtFavouritePlace.textbox.display(averiaSansLibreBold, brushImg);
   togetherAtFavouritePlace.LeftButton.display(averiaSansLibreRegular);
   togetherAtFavouritePlace.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -166,7 +180,7 @@ let sunrise = {
 function sunriseScreen() {
   push();
   image(sunriseVideo, 0, 0, 1200, 675);
-  sunrise.textbox.display(averiaSansLibreBold);
+  sunrise.textbox.display(averiaSansLibreBold, brushImg);
   sunrise.LeftButton.display(averiaSansLibreRegular);
   sunrise.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -187,7 +201,7 @@ let kitchen = {
 function kitchenScreen() {
   push();
   image(kitchenImg, 0, 0, 1200, 675);
-  kitchen.textbox.display(averiaSansLibreBold);
+  kitchen.textbox.display(averiaSansLibreBold, brushImg);
   kitchen.LeftButton.display(averiaSansLibreRegular);
   kitchen.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -212,7 +226,7 @@ let aloneInBed = {
 function aloneInBedScreen() {
   push();
   image(aloneInBedVideo, 0, 0, 1200, 675);
-  aloneInBed.textbox.display(averiaSansLibreBold);
+  aloneInBed.textbox.display(averiaSansLibreBold, brushImg);
   aloneInBed.LeftButton.display(averiaSansLibreRegular);
   aloneInBed.RightButton.display(averiaSansLibreRegular);
 
@@ -238,7 +252,7 @@ let fairygram = {
 function fairygramScreen() {
   push();
   image(handyVideo, 0, 0, 1200, 675);
-  fairygram.textbox.display(averiaSansLibreBold);
+  fairygram.textbox.display(averiaSansLibreBold, brushImg);
   fairygram.LeftButton.display(averiaSansLibreRegular);
   fairygram.RightButton.display(averiaSansLibreRegular);
 
@@ -264,7 +278,7 @@ let sad = {
 function sadScreen() {
   push();
   image(sadVideo, 0, 0, 1200, 675);
-  sad.textbox.display(averiaSansLibreBold);
+  sad.textbox.display(averiaSansLibreBold, brushImg);
   sad.LeftButton.display(averiaSansLibreRegular);
   sad.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -289,7 +303,7 @@ let friendIsCalling = {
 function friendIsCallingScreen() {
   push();
   image(friendIsCallingVideo, 0, 0, 1200, 675);
-  friendIsCalling.textbox.display(averiaSansLibreBold);
+  friendIsCalling.textbox.display(averiaSansLibreBold, brushImg);
   friendIsCalling.LeftButton.display(averiaSansLibreRegular);
   friendIsCalling.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -302,19 +316,19 @@ let aboutEx = {
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich entscheide mich, meinen Freunden von der Trennung zu erzählen.",
+    "Ich entscheide mich, meinen Freunden von \nder Trennung zu erzählen.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich gehe dem Gespräch aus dem Weg und sage nur dass es ihm gut geht.",
+    "Ich gehe dem Gespräch aus dem Weg und \nsage nur dass es ihm gut geht.",
     true
   ),
 };
 function aboutExScreen() {
   push();
   image(aboutExImg, 0, 0, 1200, 675);
-  aboutEx.textbox.display(averiaSansLibreBold);
+  aboutEx.textbox.display(averiaSansLibreBold, brushImg);
   aboutEx.LeftButton.display(averiaSansLibreRegular);
   aboutEx.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -325,19 +339,19 @@ let talkAboutEx = {
 
   LeftButton: new AnswerButton(
     answerButtonPosXLeft,
-    "Ich gebe zu, dass ich mein Lieblings-Tüdeldü vermisse.",
+    "Ich gebe zu, dass ich \nmein Lieblings-Tüdeldü vermisse.",
     true
   ),
   RightButton: new AnswerButton(
     answerButtonPosXRight,
-    "Ich beschwere mich über mein Ex-Lieblings-Tüdeldü.",
+    "Ich beschwere mich über \nmein Ex-Lieblings-Tüdeldü.",
     true
   ),
 };
 function talkAboutExScreen() {
   push();
   image(talkAboutExImg, 0, 0, 1200, 675);
-  talkAboutEx.textbox.display(averiaSansLibreBold);
+  talkAboutEx.textbox.display(averiaSansLibreBold, brushImg);
   talkAboutEx.LeftButton.display(averiaSansLibreRegular);
   talkAboutEx.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -354,7 +368,7 @@ let selectMovie = {
 function selectMovieScreen() {
   push();
   image(movieNightVideo, 0, 0, 1200, 675);
-  selectMovie.textbox.display(averiaSansLibreBold);
+  selectMovie.textbox.display(averiaSansLibreBold, brushImg);
   selectMovie.LeftButton.display(averiaSansLibreRegular);
   selectMovie.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -379,7 +393,7 @@ let lightParty = {
 function lightPartyScreen() {
   push();
   image(lightPartyVideo, 0, 0, 1200, 675);
-  lightParty.textbox.display(averiaSansLibreBold);
+  lightParty.textbox.display(averiaSansLibreBold, brushImg);
   lightParty.LeftButton.display(averiaSansLibreRegular);
   lightParty.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -404,7 +418,7 @@ let attractive = {
 function attractiveScreen() {
   push();
   image(talkAtLightPartyVideo, 0, 0, 1200, 675);
-  attractive.textbox.display(averiaSansLibreBold);
+  attractive.textbox.display(averiaSansLibreBold, brushImg);
   attractive.LeftButton.display(averiaSansLibreRegular);
   attractive.RightButton.display(averiaSansLibreRegular);
   pop();
@@ -429,44 +443,49 @@ let danceAndNumber = {
 function danceAndNumberScreen() {
   push();
   image(dancePartyVideo, 0, 0, 1200, 675);
-  danceAndNumber.textbox.display(averiaSansLibreBold);
+  danceAndNumber.textbox.display(averiaSansLibreBold, brushImg);
   danceAndNumber.LeftButton.display(averiaSansLibreRegular);
   danceAndNumber.RightButton.display(averiaSansLibreRegular);
   pop();
 }
 
 // Text for positive and negative preEndScreen
-let evaluationButton = new Button(
-  800,
-  675 / 2,
-  200,
-  200,
-  "Weiter",
-  true,
-  0,
-  0,
-  20
-);
-// Text fehlt noch
 let positives = {
-  cleanUp: new ThinkingText("Das ist ein test fürs Aufräumen"),
-  evenningHope: new ThinkingText("Das ist Abend mit"),
-  badSideGoodEffect: new ThinkingText("sda"),
-  goodNewChance: new ThinkingText("sdfs"),
+  cleanUp: new ThinkingText(
+    "Ich fühle mich wohl in meinem Zimmer. \nAußerdem hatte ich beim Aufräumen Zeit zum Nachdenken."
+  ),
+  evenningHope: new ThinkingText(
+    "Abends liege ich im Bett und denke über \nden schönen Abend nach. Ich bin immer noch ein \nwenig traurig aber auch hoffnungsvoll."
+  ),
+  badSideGoodEffect: new ThinkingText(
+    "Ich sehe ein, dass es auch schlechte Seiten \nan meiner Beziehung gab und die Trennung somit \nauch positive Auswirkungen hat."
+  ),
+  goodNewChance: new ThinkingText(
+    "Ich genieße die Zeit mit meinen Freunden und \nfühle mich nicht mehr so alleine."
+  ),
 };
-
 let negatives = {
-  emptiness: new ThinkingText("sdfsdf"),
-  missOldTime: new ThinkingText("sdfsghfd"),
-  painfulFeelings: new ThinkingText("ffgkdj"),
-  badNewChance: new ThinkingText("sdfs"),
-  drained: new ThinkingText("ausgelaugt"),
+  emptiness: new ThinkingText(
+    "Sobald ich mein Läutling weglege, \nspüre ich die Leere in mir. \nMein Verhalten hat mir gar nicht geholfen."
+  ),
+  missOldTime: new ThinkingText(
+    "Abends sitze ich wieder alleine in meinem Bett, \nvermisse mein Ex-Lieblingstüdeldü und \nwünsche die alte Zeit zurück"
+  ),
+  painfulFeelings: new ThinkingText(
+    "Es hat gut getan über meine Gefühle zu sprechen. \nTrotzdem schmerzt mich der Verlust \nvon meinem Ex-Lieblingstüdeldü."
+  ),
+  badNewChance: new ThinkingText(
+    "Während dem Film muss ich an \nmein Ex-Lieblingstüdeldü denken. \nVielleicht gibt es noch eine Chance für uns."
+  ),
+  drained: new ThinkingText(
+    "Ich wache am nächsten Morgen auf und \nfühle mich körperlich und psychisch ausgelaugt. \nDer Alkohol war nur eine kurze Freude."
+  ),
 };
 
 function positivePreEndScreen() {
   push();
   image(positiveThinkingImg, 0, 0, 1200, 675);
-  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
+  evaluationButton.display(averiaSansLibreBold, blueCircle, 0.45);
 
   if (gameScreenState === "cleanUp") {
     positives.cleanUp.display(averiaSansLibreRegular);
@@ -480,11 +499,10 @@ function positivePreEndScreen() {
 
   pop();
 }
-
 function negativePreEndScreen() {
   push();
   image(negativeThinkingImg, 0, 0, 1200, 675);
-  evaluationButton.display(averiaSansLibreBold, greenCircle, 0.3);
+  evaluationButton.display(averiaSansLibreBold, blueCircle, 0.45);
 
   if (gameScreenState === "emptiness") {
     negatives.emptiness.display(averiaSansLibreRegular);
@@ -686,13 +704,13 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       decisionCounter += 1;
-      // end aswertung
+      // end of decisions
     } else if (sad.RightButton.hitTestCustom()) {
       gameScreenState = "emptiness";
       buttonClickSound.play();
       acceptanceCounter += 1;
       decisionCounter += 1;
-      // end Auswetung
+      // end of decisions
     }
   } else if (gameScreenState === "friendIsCalling") {
     if (friendIsCalling.LeftButton.hitTestCustom()) {
@@ -726,14 +744,14 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       decisionCounter += 1;
-      // end
+      // end of decisions
     } else if (talkAboutEx.RightButton.hitTestCustom()) {
       gameScreenState = "badSideGoodEffect";
       buttonClickSound.play();
       acceptanceCounter += 1;
       angerCounter += 1;
       decisionCounter += 1;
-      // end
+      // end of decisions
     }
   } else if (gameScreenState === "selectMovie") {
     if (selectMovie.LeftButton.hitTestCustom()) {
@@ -741,13 +759,13 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       depressionCounter += 1;
       decisionCounter += 1;
-      // auswertung
+      // end of decisions
     } else if (selectMovie.RightButton.hitTestCustom()) {
       gameScreenState = "goodNewChance";
       buttonClickSound.play();
       angerCounter += 1;
       decisionCounter += 1;
-      // auswertung
+      // end of decisions
     }
   } else if (gameScreenState === "lightParty") {
     if (lightParty.LeftButton.hitTestCustom()) {
@@ -756,7 +774,7 @@ export function mouseClickedForGameScreen() {
       denialCounter += 1;
       depressionCounter += 1;
       decisionCounter += 1;
-      // end Auswertung
+      // end of decisions
     } else if (lightParty.RightButton.hitTestCustom()) {
       gameScreenState = "attractive";
       talkAtLightPartyVideo.loop();
@@ -770,7 +788,7 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       denialCounter += 1;
       decisionCounter += 1;
-      // Auswertung
+      // end of decisions
     } else if (attractive.RightButton.hitTestCustom()) {
       gameScreenState = "danceAndNumber";
       dancePartyVideo.loop();
@@ -791,7 +809,7 @@ export function mouseClickedForGameScreen() {
       buttonClickSound.play();
       acceptanceCounter += 1;
       decisionCounter += 1;
-      // Auswertung
+      // end of decisions
     }
   } else if (
     gameScreenState == "cleanUp" ||
