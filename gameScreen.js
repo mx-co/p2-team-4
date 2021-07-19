@@ -221,7 +221,7 @@ function aloneInBedScreen() {
 
 let fairygram = {
   textbox: new Textbox(
-    "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygramm. \nWie reagierst du darauf?"
+    "Dein Ex-Lieblings-Tüdelü postet ein Bild von sich auf Fairygram. \nWie reagierst du darauf?"
   ),
 
   LeftButton: new AnswerButton(
@@ -272,7 +272,7 @@ function sadScreen() {
 
 let friendIsCalling = {
   textbox: new Textbox(
-    "Dein bester Freund ist am Apparat und schlägt vor, etwas zu unternehmen. Worauf hast du Lust? \netwas zu unternehmen, worauf du Lust hast?"
+    "Dein bester Freund ist am Apparat und schlägt vor, etwas zu unternehmen.\nWorauf du Lust hast?"
   ),
 
   LeftButton: new AnswerButton(
@@ -362,7 +362,7 @@ function selectMovieScreen() {
 
 let lightParty = {
   textbox: new Textbox(
-    "Nach einigen Tänzen auf dem Lichterball bieten deine Freunde \ndir an etwa smit ihnen zu trinken. Nimmst du an?"
+    "Nach einigen Tänzen auf dem Lichterball bieten deine Freunde \ndir an etwas mmit ihnen zu trinken. Nimmst du an?"
   ),
 
   LeftButton: new AnswerButton(
