@@ -570,6 +570,7 @@ export function gameScreen() {
     negativePreEndScreen();
   }
   pop();
+  // console.log(getCounters());
 }
 
 export function mouseClickedForGameScreen() {
@@ -700,13 +701,13 @@ export function mouseClickedForGameScreen() {
     }
   } else if (gameScreenState === "sad") {
     if (sad.LeftButton.hitTestCustom()) {
-      gameScreenState = "cleanUp";
+      gameScreenState = "emptiness";
       buttonClickSound.play();
       denialCounter += 1;
       decisionCounter += 1;
       // end of decisions
     } else if (sad.RightButton.hitTestCustom()) {
-      gameScreenState = "emptiness";
+      gameScreenState = "cleanUp";
       buttonClickSound.play();
       acceptanceCounter += 1;
       decisionCounter += 1;
