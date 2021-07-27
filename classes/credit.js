@@ -1,6 +1,6 @@
 export default class Credit {
-  constructor(crediX, creditY) {
-    this.creditX = crediX;
+  constructor(creditX, creditY) {
+    this.creditX = creditX;
     this.creditY = creditY;
   }
 
